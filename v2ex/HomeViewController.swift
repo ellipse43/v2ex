@@ -1,5 +1,5 @@
 //
-//  PageMeuViewController.swift
+//  HomeViewController.swift
 //  v2ex
 //
 //  Created by ellipse42 on 15/8/16.
@@ -9,7 +9,9 @@
 import UIKit
 import PageMenu
 
-class PageMeuViewController: UIViewController {
+class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var barButton: UIButton!
     
     lazy var pageMenu: CAPSPageMenu = {
         var vcs : [UIViewController] = []
@@ -34,13 +36,16 @@ class PageMeuViewController: UIViewController {
             .MenuItemWidth(40.0),
             .CenterMenuItems(true)
         ]
+        // fix: PageMenu Bug
+        var _height = UIApplication.sharedApplication().statusBarFrame.size.height + self.navigationController!.navigationBar.frame.size.height
+        var v = CAPSPageMenu(viewControllers: vcs, frame: CGRectMake(0.0, _height, self.view.frame.width, self.view.frame.height - _height), pageMenuOptions: args)
         
-        var _pm = CAPSPageMenu(viewControllers: vcs, frame: CGRectMake(0.0, UIApplication.sharedApplication().statusBarFrame.size.height + self.navigationController!.navigationBar.frame.size.height, self.view.frame.width, self.view.frame.height), pageMenuOptions: args)
-        return _pm
+        return v
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.addSubview(pageMenu.view)
         navigationController?.navigationBar.topItem!.title = "v2ex"
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
@@ -49,6 +54,15 @@ class PageMeuViewController: UIViewController {
 //        navigationController?.navigationBar.shadowImage = nil
 //        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
 //        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let vc = segue.destinationViewController as! GuillotineMenuViewController
+        vc.hostNavigationBarHeight = self.navigationController!.navigationBar.frame.size.height
+        vc.hostTitleText = self.navigationItem.title
+        vc.view.backgroundColor = self.navigationController!.navigationBar.barTintColor
+        vc.setMenuButtonWithImage(barButton.imageView!.image!)
     }
 
 }

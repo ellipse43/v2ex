@@ -8,15 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		497D63FDE0EE473CA1A82DCD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F104ABEEB5C2D05C38029EFD /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		74280C251B806E8F00BAE87F /* PageMeuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74280C241B806E8F00BAE87F /* PageMeuViewController.swift */; };
+		74280C251B806E8F00BAE87F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74280C241B806E8F00BAE87F /* HomeViewController.swift */; };
 		74280C271B80C59E00BAE87F /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74280C261B80C59E00BAE87F /* TabViewController.swift */; };
 		74280C291B80D74E00BAE87F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74280C281B80D74E00BAE87F /* Utils.swift */; };
+		742FB8481B9810B9003DC360 /* GuillotineMenuSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742FB8441B9810B9003DC360 /* GuillotineMenuSegue.swift */; };
+		742FB8491B9810B9003DC360 /* GuillotineMenuTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742FB8451B9810B9003DC360 /* GuillotineMenuTransitionAnimation.swift */; };
+		742FB84A1B9810B9003DC360 /* GuillotineMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742FB8461B9810B9003DC360 /* GuillotineMenuViewController.swift */; };
+		742FB84B1B9810B9003DC360 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742FB8471B9810B9003DC360 /* UIViewExtension.swift */; };
+		742FB84E1B983765003DC360 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742FB84D1B983765003DC360 /* MenuViewController.swift */; };
+		742FB8521B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 742FB8511B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.m */; };
+		744518FC1B90C6C3004BB08F /* Helps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744518FB1B90C6C3004BB08F /* Helps.swift */; };
 		744BD5591B819792008C400D /* SimpleAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744BD5581B819792008C400D /* SimpleAnimate.swift */; };
-		745B0BBD1B7E59990025BFF2 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BBC1B7E59990025BFF2 /* AppTableViewCell.swift */; };
-		745B0BBF1B7F0D110025BFF2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BBE1B7F0D110025BFF2 /* DetailViewController.swift */; };
-		745B0BC11B7FAA8F0025BFF2 /* RepliesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BC01B7FAA8F0025BFF2 /* RepliesTableViewCell.swift */; };
+		745B0BBD1B7E59990025BFF2 /* TabViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BBC1B7E59990025BFF2 /* TabViewCell.swift */; };
+		745B0BBF1B7F0D110025BFF2 /* TabDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BBE1B7F0D110025BFF2 /* TabDetailViewController.swift */; };
+		745B0BC11B7FAA8F0025BFF2 /* TabRepliesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BC01B7FAA8F0025BFF2 /* TabRepliesViewCell.swift */; };
 		747CF4571B7E29970053AC7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747CF4561B7E29970053AC7A /* AppDelegate.swift */; };
-		747CF4591B7E29970053AC7A /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747CF4581B7E29970053AC7A /* AppViewController.swift */; };
 		747CF45C1B7E29970053AC7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747CF45A1B7E29970053AC7A /* Main.storyboard */; };
 		747CF45E1B7E29970053AC7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747CF45D1B7E29970053AC7A /* Images.xcassets */; };
 		747CF4611B7E29970053AC7A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 747CF45F1B7E29970053AC7A /* LaunchScreen.xib */; };
@@ -35,17 +41,25 @@
 
 /* Begin PBXFileReference section */
 		51F2F9DAEF2F59C41D33C7E3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		74280C241B806E8F00BAE87F /* PageMeuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageMeuViewController.swift; sourceTree = "<group>"; };
+		74280C241B806E8F00BAE87F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		74280C261B80C59E00BAE87F /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		74280C281B80D74E00BAE87F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		742FB8441B9810B9003DC360 /* GuillotineMenuSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuillotineMenuSegue.swift; sourceTree = "<group>"; };
+		742FB8451B9810B9003DC360 /* GuillotineMenuTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuillotineMenuTransitionAnimation.swift; sourceTree = "<group>"; };
+		742FB8461B9810B9003DC360 /* GuillotineMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuillotineMenuViewController.swift; sourceTree = "<group>"; };
+		742FB8471B9810B9003DC360 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		742FB84D1B983765003DC360 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		742FB84F1B9AE4AE003DC360 /* v2ex-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "v2ex-Bridging-Header.h"; sourceTree = "<group>"; };
+		742FB8501B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		742FB8511B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		744518FB1B90C6C3004BB08F /* Helps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helps.swift; sourceTree = "<group>"; };
 		744BD5581B819792008C400D /* SimpleAnimate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAnimate.swift; sourceTree = "<group>"; };
-		745B0BBC1B7E59990025BFF2 /* AppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
-		745B0BBE1B7F0D110025BFF2 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		745B0BC01B7FAA8F0025BFF2 /* RepliesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepliesTableViewCell.swift; sourceTree = "<group>"; };
+		745B0BBC1B7E59990025BFF2 /* TabViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewCell.swift; sourceTree = "<group>"; };
+		745B0BBE1B7F0D110025BFF2 /* TabDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabDetailViewController.swift; sourceTree = "<group>"; };
+		745B0BC01B7FAA8F0025BFF2 /* TabRepliesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabRepliesViewCell.swift; sourceTree = "<group>"; };
 		747CF4511B7E29970053AC7A /* v2ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v2ex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747CF4551B7E29970053AC7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		747CF4561B7E29970053AC7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		747CF4581B7E29970053AC7A /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		747CF45B1B7E29970053AC7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		747CF45D1B7E29970053AC7A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		747CF4601B7E29970053AC7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -75,6 +89,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		742FB8411B975812003DC360 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				74280C241B806E8F00BAE87F /* HomeViewController.swift */,
+				742FB84D1B983765003DC360 /* MenuViewController.swift */,
+				74280C261B80C59E00BAE87F /* TabViewController.swift */,
+				745B0BBE1B7F0D110025BFF2 /* TabDetailViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		742FB8421B97583E003DC360 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		742FB8431B97584A003DC360 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				745B0BBC1B7E59990025BFF2 /* TabViewCell.swift */,
+				745B0BC01B7FAA8F0025BFF2 /* TabRepliesViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		742FB84C1B9810D4003DC360 /* GuillotineMenu */ = {
+			isa = PBXGroup;
+			children = (
+				742FB8441B9810B9003DC360 /* GuillotineMenuSegue.swift */,
+				742FB8451B9810B9003DC360 /* GuillotineMenuTransitionAnimation.swift */,
+				742FB8461B9810B9003DC360 /* GuillotineMenuViewController.swift */,
+				742FB8471B9810B9003DC360 /* UIViewExtension.swift */,
+			);
+			name = GuillotineMenu;
+			sourceTree = "<group>";
+		};
+		742FB8531B9AE4B7003DC360 /* FDFullscreenPopGesture */ = {
+			isa = PBXGroup;
+			children = (
+				742FB8501B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.h */,
+				742FB8511B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.m */,
+			);
+			name = FDFullscreenPopGesture;
+			sourceTree = "<group>";
+		};
 		747CF4481B7E29970053AC7A = {
 			isa = PBXGroup;
 			children = (
@@ -98,19 +159,18 @@
 		747CF4531B7E29970053AC7A /* v2ex */ = {
 			isa = PBXGroup;
 			children = (
-				747CF4561B7E29970053AC7A /* AppDelegate.swift */,
-				747CF4581B7E29970053AC7A /* AppViewController.swift */,
-				74280C261B80C59E00BAE87F /* TabViewController.swift */,
-				744BD5581B819792008C400D /* SimpleAnimate.swift */,
-				74280C241B806E8F00BAE87F /* PageMeuViewController.swift */,
-				745B0BC01B7FAA8F0025BFF2 /* RepliesTableViewCell.swift */,
-				745B0BBC1B7E59990025BFF2 /* AppTableViewCell.swift */,
-				745B0BBE1B7F0D110025BFF2 /* DetailViewController.swift */,
+				742FB8531B9AE4B7003DC360 /* FDFullscreenPopGesture */,
+				742FB84C1B9810D4003DC360 /* GuillotineMenu */,
+				742FB8421B97583E003DC360 /* Model */,
+				742FB8431B97584A003DC360 /* View */,
+				742FB8411B975812003DC360 /* Controller */,
 				74280C281B80D74E00BAE87F /* Utils.swift */,
+				744518FB1B90C6C3004BB08F /* Helps.swift */,
+				744BD5581B819792008C400D /* SimpleAnimate.swift */,
 				747CF45A1B7E29970053AC7A /* Main.storyboard */,
 				747CF45D1B7E29970053AC7A /* Images.xcassets */,
-				747CF45F1B7E29970053AC7A /* LaunchScreen.xib */,
 				747CF4541B7E29970053AC7A /* Supporting Files */,
+				742FB84F1B9AE4AE003DC360 /* v2ex-Bridging-Header.h */,
 			);
 			path = v2ex;
 			sourceTree = "<group>";
@@ -118,6 +178,8 @@
 		747CF4541B7E29970053AC7A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				747CF45F1B7E29970053AC7A /* LaunchScreen.xib */,
+				747CF4561B7E29970053AC7A /* AppDelegate.swift */,
 				747CF4551B7E29970053AC7A /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -308,14 +370,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				747CF4591B7E29970053AC7A /* AppViewController.swift in Sources */,
+				742FB8521B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				744BD5591B819792008C400D /* SimpleAnimate.swift in Sources */,
-				74280C251B806E8F00BAE87F /* PageMeuViewController.swift in Sources */,
+				74280C251B806E8F00BAE87F /* HomeViewController.swift in Sources */,
 				747CF4571B7E29970053AC7A /* AppDelegate.swift in Sources */,
-				745B0BBD1B7E59990025BFF2 /* AppTableViewCell.swift in Sources */,
-				745B0BBF1B7F0D110025BFF2 /* DetailViewController.swift in Sources */,
+				742FB84E1B983765003DC360 /* MenuViewController.swift in Sources */,
+				745B0BBD1B7E59990025BFF2 /* TabViewCell.swift in Sources */,
+				745B0BBF1B7F0D110025BFF2 /* TabDetailViewController.swift in Sources */,
+				744518FC1B90C6C3004BB08F /* Helps.swift in Sources */,
 				74280C271B80C59E00BAE87F /* TabViewController.swift in Sources */,
-				745B0BC11B7FAA8F0025BFF2 /* RepliesTableViewCell.swift in Sources */,
+				742FB8491B9810B9003DC360 /* GuillotineMenuTransitionAnimation.swift in Sources */,
+				745B0BC11B7FAA8F0025BFF2 /* TabRepliesViewCell.swift in Sources */,
+				742FB84B1B9810B9003DC360 /* UIViewExtension.swift in Sources */,
+				742FB84A1B9810B9003DC360 /* GuillotineMenuViewController.swift in Sources */,
+				742FB8481B9810B9003DC360 /* GuillotineMenuSegue.swift in Sources */,
 				74280C291B80D74E00BAE87F /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,9 +512,12 @@
 			baseConfigurationReference = D4AC4AC06289DA2ED444FAA0 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = v2ex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "v2ex/v2ex-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -455,9 +526,11 @@
 			baseConfigurationReference = 51F2F9DAEF2F59C41D33C7E3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = v2ex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "v2ex/v2ex-Bridging-Header.h";
 			};
 			name = Release;
 		};

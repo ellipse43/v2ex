@@ -1,5 +1,5 @@
 //
-//  AppTableViewCell.swift
+//  TabViewCell.swift
 //  v2ex
 //
 //  Created by ellipse42 on 15/8/15.
@@ -8,58 +8,58 @@
 
 import UIKit
 
-class AppTableViewCell: UITableViewCell {
+class TabViewCell: UITableViewCell {
     
     lazy var title: UILabel = {
-        var _l = UILabel()
-        _l.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        _l.numberOfLines = 0
-//        _l.preferredMaxLayoutWidth = self.contentView.frame.size.width
-        return _l
+        var v = UILabel()
+        v.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        v.numberOfLines = 0
+        v.preferredMaxLayoutWidth = self.contentView.frame.size.width
+        return v
     }()
     
     lazy var username: UILabel = {
-        var _l = UILabel()
-        _l.font = UIFont(name: "Helvetica Neue", size: 12)
-        _l.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return _l
+        var v = UILabel()
+        v.font = UIFont(name: "Helvetica Neue", size: 12)
+        v.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
+        return v
     }()
 
     lazy var created: UILabel = {
-        var _l = UILabel()
-        _l.font = UIFont(name: "Helvetica Neue", size: 12)
-        _l.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return _l
+        var v = UILabel()
+        v.font = UIFont(name: "Helvetica Neue", size: 12)
+        v.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
+        return v
     }()
     
     lazy var node: UILabel = {
-        var _l = UILabel()
-        _l.font = UIFont(name: "Helvetica Neue", size: 12)
-        _l.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return _l
+        var v = UILabel()
+        v.font = UIFont(name: "Helvetica Neue", size: 12)
+        v.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
+        return v
     }()
     
     lazy var replies: UILabel = {
-        var _l = UILabel()
-        _l.font = UIFont(name: "Helvetica Neue", size: 12)
-        _l.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return _l
+        var v = UILabel()
+        v.font = UIFont(name: "Helvetica Neue", size: 12)
+        v.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
+        return v
     }()
     
     
     lazy var repliesLogo: UIImageView = {
-        var _i = UIImageView()
-        _i.image = UIImage(named: "replies")
-        return _i
+        var v = UIImageView()
+        v.image = UIImage(named: "replies")
+        return v
     }()
     
     lazy var avatar: UIImageView = {
-        var _i = UIImageView()
-        _i.backgroundColor = UIColor.blackColor()
-        _i.layer.masksToBounds = false
-        _i.layer.cornerRadius = 15
-        _i.clipsToBounds = true
-        return _i
+        var v = UIImageView()
+        v.backgroundColor = UIColor.blackColor()
+        v.layer.masksToBounds = false
+        v.layer.cornerRadius = 15
+        v.clipsToBounds = true
+        return v
     }()
     
     
@@ -79,8 +79,8 @@ class AppTableViewCell: UITableViewCell {
         
         title.snp_makeConstraints { (make) -> Void in
             // fix -> http://stackoverflow.com/questions/30364712/custom-cell-to-display-multiline-label-using-uitableviewautomaticdimension
-            make.top.equalTo(45)
-            make.bottom.equalTo(-20)
+            make.top.equalTo(contentView).offset(45)
+            make.bottom.equalTo(contentView).offset(-20)
             make.left.equalTo(contentView).offset(10)
             make.right.equalTo(contentView).offset(-20)
         }
@@ -122,7 +122,7 @@ class AppTableViewCell: UITableViewCell {
         super.drawRect(rect)
         
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetStrokeColorWithColor(context, UIColor.darkGrayColor().CGColor)
+        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
         CGContextSetLineWidth(context, 1.0)
         CGContextMoveToPoint(context, 10, 20)
         CGContextAddLineToPoint(context, contentView.frame.width - 10, 20)

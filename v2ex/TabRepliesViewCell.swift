@@ -1,5 +1,5 @@
 //
-//  RepliesTableViewCell.swift
+//  TabRepliesViewCell.swift
 //  v2ex
 //
 //  Created by ellipse42 on 15/8/16.
@@ -8,11 +8,10 @@
 
 import UIKit
 
-class RepliesTableViewCell: UITableViewCell {
+class TabRepliesViewCell: UITableViewCell {
     
     lazy var content: UILabel = {
         var _l = UILabel()
-        _l.font = UIFont(name: "Helvetica Neue", size: 14)
         _l.lineBreakMode = NSLineBreakMode.ByWordWrapping
         _l.numberOfLines = 0
         // fix
@@ -46,7 +45,7 @@ class RepliesTableViewCell: UITableViewCell {
         var _i = UIImageView()
         _i.backgroundColor = UIColor.blackColor()
         _i.layer.masksToBounds = false
-        _i.layer.cornerRadius = 10
+        _i.layer.cornerRadius = 15
         _i.clipsToBounds = true
         return _i
     }()
@@ -66,27 +65,38 @@ class RepliesTableViewCell: UITableViewCell {
         }
         
         avatar.snp_makeConstraints { (make) -> Void in
-            make.width.equalTo(20)
-            make.height.equalTo(20)
             make.top.equalTo(contentView).offset(5)
-            make.left.equalTo(contentView).offset(10)
+            make.left.equalTo(contentView).offset(30)
+            make.width.equalTo(30)
+            make.height.equalTo(30)
         }
         
         username.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(contentView).offset(7)
-            make.left.equalTo(avatar.snp_right).offset(5)
+            make.top.equalTo(content.snp_bottom).offset(5)
+            make.left.equalTo(contentView).offset(10)
         }
         
         created.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(contentView).offset(7)
-            make.right.equalTo(contentView).offset(-10)
+            make.top.equalTo(content.snp_bottom).offset(5)
+            make.left.equalTo(username.snp_right).offset(5)
         }
         
-        content.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(avatar.snp_bottom).offset(0)
-            make.bottom.equalTo(-5)
-            make.left.equalTo(contentView).offset(25)
-            make.right.equalTo(contentView).offset(-20)
+        content.snp_makeConstraints { (make) -> Void in            
+            make.top.equalTo(avatar.snp_bottom).offset(5)
+            make.bottom.equalTo(contentView).offset(-20)
+            make.left.equalTo(contentView).offset(10)
+            make.right.equalTo(contentView).offset(-10)
         }
+    }
+    
+    override func drawRect(rect: CGRect) {
+        super.drawRect(rect)
+        
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
+        CGContextSetLineWidth(context, 1.0)
+        CGContextMoveToPoint(context, 10, 20)
+        CGContextAddLineToPoint(context, contentView.frame.width - 10, 20)
+        CGContextStrokePath(context)
     }
 }

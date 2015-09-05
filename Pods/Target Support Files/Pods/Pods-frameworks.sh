@@ -50,6 +50,7 @@ code_sign() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Alamofire.framework'
   install_framework 'Kanna.framework'
+  install_framework 'Kingfisher.framework'
   install_framework 'PageMenu.framework'
   install_framework 'Refresher.framework'
   install_framework 'SnapKit.framework'
@@ -59,6 +60,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Alamofire.framework'
   install_framework 'Kanna.framework'
+  install_framework 'Kingfisher.framework'
   install_framework 'PageMenu.framework'
   install_framework 'Refresher.framework'
   install_framework 'SnapKit.framework'

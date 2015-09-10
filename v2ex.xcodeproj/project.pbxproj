@@ -17,6 +17,7 @@
 		742FB84B1B9810B9003DC360 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742FB8471B9810B9003DC360 /* UIViewExtension.swift */; };
 		742FB84E1B983765003DC360 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742FB84D1B983765003DC360 /* MenuViewController.swift */; };
 		742FB8521B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 742FB8511B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.m */; };
+		742FB8551B9E8A47003DC360 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742FB8541B9E8A47003DC360 /* ProfileViewController.swift */; };
 		744518FC1B90C6C3004BB08F /* Helps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744518FB1B90C6C3004BB08F /* Helps.swift */; };
 		744BD5591B819792008C400D /* SimpleAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744BD5581B819792008C400D /* SimpleAnimate.swift */; };
 		745B0BBD1B7E59990025BFF2 /* TabViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BBC1B7E59990025BFF2 /* TabViewCell.swift */; };
@@ -27,6 +28,7 @@
 		747CF45E1B7E29970053AC7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747CF45D1B7E29970053AC7A /* Images.xcassets */; };
 		747CF4611B7E29970053AC7A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 747CF45F1B7E29970053AC7A /* LaunchScreen.xib */; };
 		747CF46D1B7E29970053AC7A /* v2exTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747CF46C1B7E29970053AC7A /* v2exTests.swift */; };
+		748BDFF91B9F262000A7AA8E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748BDFF81B9F262000A7AA8E /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		742FB84F1B9AE4AE003DC360 /* v2ex-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "v2ex-Bridging-Header.h"; sourceTree = "<group>"; };
 		742FB8501B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		742FB8511B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		742FB8541B9E8A47003DC360 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		744518FB1B90C6C3004BB08F /* Helps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helps.swift; sourceTree = "<group>"; };
 		744BD5581B819792008C400D /* SimpleAnimate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleAnimate.swift; sourceTree = "<group>"; };
 		745B0BBC1B7E59990025BFF2 /* TabViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewCell.swift; sourceTree = "<group>"; };
@@ -66,6 +69,7 @@
 		747CF4661B7E29970053AC7A /* v2exTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = v2exTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		747CF46B1B7E29970053AC7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		747CF46C1B7E29970053AC7A /* v2exTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = v2exTests.swift; sourceTree = "<group>"; };
+		748BDFF81B9F262000A7AA8E /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D4AC4AC06289DA2ED444FAA0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F104ABEEB5C2D05C38029EFD /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,6 +100,7 @@
 				742FB84D1B983765003DC360 /* MenuViewController.swift */,
 				74280C261B80C59E00BAE87F /* TabViewController.swift */,
 				745B0BBE1B7F0D110025BFF2 /* TabDetailViewController.swift */,
+				742FB8541B9E8A47003DC360 /* ProfileViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -112,6 +117,8 @@
 			children = (
 				745B0BBC1B7E59990025BFF2 /* TabViewCell.swift */,
 				745B0BC01B7FAA8F0025BFF2 /* TabRepliesViewCell.swift */,
+				748BDFF81B9F262000A7AA8E /* ProfileView.swift */,
+				744BD5581B819792008C400D /* SimpleAnimate.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -166,7 +173,7 @@
 				742FB8411B975812003DC360 /* Controller */,
 				74280C281B80D74E00BAE87F /* Utils.swift */,
 				744518FB1B90C6C3004BB08F /* Helps.swift */,
-				744BD5581B819792008C400D /* SimpleAnimate.swift */,
+				747CF4561B7E29970053AC7A /* AppDelegate.swift */,
 				747CF45A1B7E29970053AC7A /* Main.storyboard */,
 				747CF45D1B7E29970053AC7A /* Images.xcassets */,
 				747CF4541B7E29970053AC7A /* Supporting Files */,
@@ -179,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				747CF45F1B7E29970053AC7A /* LaunchScreen.xib */,
-				747CF4561B7E29970053AC7A /* AppDelegate.swift */,
 				747CF4551B7E29970053AC7A /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -376,8 +382,10 @@
 				747CF4571B7E29970053AC7A /* AppDelegate.swift in Sources */,
 				742FB84E1B983765003DC360 /* MenuViewController.swift in Sources */,
 				745B0BBD1B7E59990025BFF2 /* TabViewCell.swift in Sources */,
+				742FB8551B9E8A47003DC360 /* ProfileViewController.swift in Sources */,
 				745B0BBF1B7F0D110025BFF2 /* TabDetailViewController.swift in Sources */,
 				744518FC1B90C6C3004BB08F /* Helps.swift in Sources */,
+				748BDFF91B9F262000A7AA8E /* ProfileView.swift in Sources */,
 				74280C271B80C59E00BAE87F /* TabViewController.swift in Sources */,
 				742FB8491B9810B9003DC360 /* GuillotineMenuTransitionAnimation.swift in Sources */,
 				745B0BC11B7FAA8F0025BFF2 /* TabRepliesViewCell.swift in Sources */,

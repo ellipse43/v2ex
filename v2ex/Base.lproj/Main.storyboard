@@ -132,6 +132,24 @@
             </objects>
             <point key="canvasLocation" x="2713" y="267"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="tzl-d3-JHj">
+            <objects>
+                <viewController storyboardIdentifier="profileVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="u6o-2a-XqG" customClass="ProfileViewController" customModule="v2ex" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hpl-2S-XWE"/>
+                        <viewControllerLayoutGuide type="bottom" id="veE-pq-TC2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N9y-0s-Ax9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I5M-LS-P26" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3403" y="267"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="TJP-US-dgE">
             <objects>

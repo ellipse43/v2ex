@@ -109,18 +109,22 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     }()
     
     lazy var repliesLogo: UIImageView = {
-        var _i = UIImageView()
-        _i.image = UIImage(named: "replies")
-        return _i
+        var v = UIImageView()
+        v.image = UIImage(named: "replies")
+        return v
     }()
     
     lazy var avatar: UIImageView = {
-        var _i = UIImageView()
-        _i.backgroundColor = UIColor.blackColor()
-        _i.layer.masksToBounds = false
-        _i.layer.cornerRadius = 15
-        _i.clipsToBounds = true
-        return _i
+        var v = UIImageView()
+        v.backgroundColor = UIColor.blackColor()
+        v.layer.masksToBounds = false
+        v.layer.cornerRadius = 15
+        v.clipsToBounds = true
+        var gesture = UITapGestureRecognizer(target: self, action: Selector("profileAction:"))
+        v.addGestureRecognizer(gesture)
+        v.userInteractionEnabled = true
+        v.tag = -1
+        return v
     }()
 
     
@@ -210,6 +214,7 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         let back = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
         back.setImage(UIImage(named: "back"), forState: UIControlState.Normal)
         back.addTarget(self, action: "backAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        back.contentEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0)
         back.sizeToFit()
         let backItem = UIBarButtonItem(customView: back)
         navigationItem.leftBarButtonItem = backItem
@@ -344,15 +349,35 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         cell.selectionStyle = UITableViewCellSelectionStyle.None
+        // fix
+        var gesture = UITapGestureRecognizer(target: self, action: Selector("profileAction:"))
+        cell.avatar.addGestureRecognizer(gesture)
+        cell.avatar.userInteractionEnabled = true
+        cell.avatar.tag = index
         
         return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+        
     }
     
     func backAction(sender: UIButton) {
         navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func profileAction(sender: UITapGestureRecognizer) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileVC = storyboard.instantiateViewControllerWithIdentifier("profileVC") as? ProfileViewController
+        if sender.view!.tag == -1 {
+            if let username = info["username"].string {
+                profileVC!.un = username
+            }
+        } else {
+            if let username = replies[sender.view!.tag]["member"]["username"].string {
+                profileVC!.un = username
+            }
+        }
+        navigationController?.pushViewController(profileVC!, animated: true)
     }
 }

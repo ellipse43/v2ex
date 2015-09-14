@@ -49,6 +49,10 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.startPullToRefresh()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     func getInfos() {
         Alamofire.request(.GET, "http://www.v2ex.com/?tab=\(self.tabCategory!)")
             .response { (request, response, data, error) in

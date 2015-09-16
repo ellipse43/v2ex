@@ -40,24 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Wbc-e9-mhg">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="bdA-cp-98k">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nZf-ku-HJz">
-                                <rect key="frame" x="16" y="11" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="contentEdgeInsets" minX="-18" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" image="ic_menu">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="YNA-fv-A0I" kind="custom" customClass="GuillotineMenuSegue" customModule="v2ex" id="qcG-W8-Z9J"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="barButton" destination="nZf-ku-HJz" id="XEq-ZL-YxV"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="Wbc-e9-mhg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bik-dO-kiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,10 +133,28 @@
             </objects>
             <point key="canvasLocation" x="3403" y="267"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="l2A-bX-9NB">
+            <objects>
+                <viewController storyboardIdentifier="MenuViewController" id="kSq-kN-t7d" customClass="MenuViewController" customModule="v2ex" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vho-es-VaS"/>
+                        <viewControllerLayoutGuide type="bottom" id="fKt-sE-XRL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fQg-2B-J5g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ao1-no-LwO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1173" y="267"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="TJP-US-dgE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nUE-B0-ZGF" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeViewController" automaticallyAdjustsScrollViewInsets="NO" id="nUE-B0-ZGF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SxA-iZ-3aO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -169,7 +170,4 @@
             <point key="canvasLocation" x="1173" y="975"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="ic_menu" width="14" height="10"/>
-    </resources>
 </document>

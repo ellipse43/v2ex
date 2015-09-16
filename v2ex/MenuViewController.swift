@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuViewController: GuillotineMenuViewController {
+class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

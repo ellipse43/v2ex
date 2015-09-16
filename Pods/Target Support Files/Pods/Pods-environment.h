@@ -36,6 +36,12 @@
 #define COCOAPODS_VERSION_MINOR_Refresher 2
 #define COCOAPODS_VERSION_PATCH_Refresher 0
 
+// SlideMenuControllerSwift
+#define COCOAPODS_POD_AVAILABLE_SlideMenuControllerSwift
+#define COCOAPODS_VERSION_MAJOR_SlideMenuControllerSwift 1
+#define COCOAPODS_VERSION_MINOR_SlideMenuControllerSwift 2
+#define COCOAPODS_VERSION_PATCH_SlideMenuControllerSwift 3
+
 // SnapKit
 #define COCOAPODS_POD_AVAILABLE_SnapKit
 #define COCOAPODS_VERSION_MAJOR_SnapKit 0

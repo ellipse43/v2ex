@@ -8,6 +8,7 @@
 
 import UIKit
 import PageMenu
+import SlideMenuControllerSwift
 
 class HomeViewController: UIViewController {
     
@@ -54,6 +55,8 @@ class HomeViewController: UIViewController {
 //        navigationController?.navigationBar.shadowImage = nil
 //        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
 //        navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        addLeftBarButtonWithImage(UIImage(named: "ic_menu")!)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

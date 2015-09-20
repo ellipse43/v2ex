@@ -16,13 +16,9 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
     var un: String? {
         didSet {
-            Alamofire.request(.GET, "http://www.v2ex.com/api/members/show.json", parameters: ["username": un!]).responseJSON {
-                (request, response, data, error) in
-                if (error != nil) {
-                    
-                } else {
-                    let res = JSON(data!)
-                    
+            Alamofire.request(.GET, "http://www.v2ex.com/api/members/show.json", parameters: ["username": un!])
+                .responseJSON { (_, _, data) in
+                    let res = JSON(data.value!)
                     if let x = res["username"].string {
                         self.username.text = x
                     }
@@ -33,13 +29,12 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
                     
                     if let x = res["avatar_large"].string {
                         if let url = NSURL(string: "http:\(x)") {
-                            if let data = NSData(contentsOfURL: url){
+                            if let _ = NSData(contentsOfURL: url){
                                 self.avatar.kf_setImageWithResource(Resource(downloadURL: url), placeholderImage: nil, optionsInfo: nil)
                             }
                         }
                     }
                     
-                }
             }
         }
     }

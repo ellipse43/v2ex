@@ -39,7 +39,7 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
                 repliesL.text = id
             }
             
-            if let id = info["replies"].string!.toInt() {
+            if let id = Int(info["replies"].string!) {
                 if (id > 0) {
                     repliesLabel.text = "共\(id)回复"
                 }
@@ -47,7 +47,7 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             
             if let id = info["avatar"].string {
                 if let url = NSURL(string: "http:\(id)") {
-                    if let data = NSData(contentsOfURL: url){
+                    if let _ = NSData(contentsOfURL: url){
                         avatar.kf_setImageWithResource(Resource(downloadURL: url), placeholderImage: nil, optionsInfo: nil)
                     }
                 }
@@ -66,9 +66,8 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    lazy var header: HeaderView = {
-        var v = HeaderView()
-        v.ci = self.navigationController!.navigationBar.frame.height
+    lazy var header: UIView = {
+        var v = UIView()
         v.backgroundColor = UIColor.whiteColor()
         return v
     }()
@@ -211,7 +210,7 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func setup() {
-        let back = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        let back = UIButton(type: UIButtonType.Custom)
         back.setImage(UIImage(named: "back"), forState: UIControlState.Normal)
         back.addTarget(self, action: "backAction:", forControlEvents: UIControlEvents.TouchUpInside)
         back.contentEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0)
@@ -296,23 +295,15 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func getContent(id: String) {
         Alamofire.request(.GET, "http://www.v2ex.com/api/topics/show.json", parameters: ["id": id])
-            .responseJSON { (request, response, data, error) in
-                if (error != nil) {
-                    NSLog("Error")
-                } else {
-                    self.contentLabel.text = JSON(data!)[0]["content"].string
-                }
+            .responseJSON { (_, _, data) in
+                self.contentLabel.text = JSON(data.value!)[0]["content"].string
         }
     }
     
     func getReplies(id: String) {
         Alamofire.request(.GET, "http://www.v2ex.com/api/replies/show.json", parameters: ["topic_id": id])
-            .responseJSON { (request, response, data, error) in
-                if (error != nil) {
-                    NSLog("Error")
-                } else {
-                    self.replies = JSON(data!)
-                }
+            .responseJSON { (_, _, data) in
+                self.replies = JSON(data.value!)
                 self.tableView.stopPullToRefresh()
         }
     }
@@ -326,8 +317,8 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(CELLNAME, forIndexPath: indexPath) as! TabRepliesViewCell
-        var index = indexPath.row as Int
+        let cell = tableView.dequeueReusableCellWithIdentifier(CELLNAME, forIndexPath: indexPath) as! TabRepliesViewCell
+        let index = indexPath.row as Int
         
         if let id = replies[index]["member"]["avatar_large"].string {
             if let url = NSURL(string: "http:\(id)") {
@@ -345,12 +336,12 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         if let id = replies[index]["created"].double {
-            cell.created.text = timeFriendly(id)
+            cell.created.text = Util.timePrettify(id)
         }
         
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         // fix
-        var gesture = UITapGestureRecognizer(target: self, action: Selector("profileAction:"))
+        let gesture = UITapGestureRecognizer(target: self, action: Selector("profileAction:"))
         cell.avatar.addGestureRecognizer(gesture)
         cell.avatar.userInteractionEnabled = true
         cell.avatar.tag = index

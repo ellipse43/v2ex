@@ -15,7 +15,7 @@ import Kingfisher
 
 class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private let CELLNAME = "tabViewCell"
+    let CELLNAME = "tabViewCell"
     var parentNavigationController: UINavigationController?
     var tabCategory: String?
     
@@ -39,14 +39,6 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        
-        let simpleAnimator = SimpleAnimator(frame: CGRectMake(0, 0, 320, 60))
-        tableView.addPullToRefreshWithAction({
-            NSOperationQueue().addOperationWithBlock {
-                self.getInfos()
-            }
-            }, withAnimator: simpleAnimator)
-        tableView.startPullToRefresh()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -54,12 +46,12 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func getInfos() {
-        Alamofire.request(.GET, "http://www.v2ex.com/?tab=\(self.tabCategory!)")
-            .response { (request, response, data, error) in
-                if (error != nil) {
+        Alamofire.request(.GET, String(format: Config.tabUrl, self.tabCategory!))
+            .responseString { (_, _, data) in
+                if data.isFailure {
                     NSLog("Error")
                 } else {
-                    if let doc = Kanna.HTML(html: data!, encoding: NSUTF8StringEncoding) {
+                    if let doc = Kanna.HTML(html: data.value!, encoding: NSUTF8StringEncoding) {
                         var _infos = [JSON]()
                         for node in doc.css("#Main > div:nth-child(2) > div.item") {
                             var d = Dictionary<String, String>()
@@ -79,7 +71,7 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                             }
                             if let created = node.at_css("table > tr > td:nth-child(3) > span.small.fade") {
                                 if let msg = created.text {
-                                    let v = split(msg) {$0 == "•"}
+                                    let v = msg.characters.split {$0 == "•"}.map { String($0) }
                                     d["created"] = v.count == 4 ? v[2]: nil
                                 }
                                 
@@ -108,6 +100,14 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(view).inset(UIEdgeInsetsMake(0, 0, 0, 0))
         }
+        
+        let simpleAnimator = SimpleAnimator(frame: CGRectMake(0, 0, 320, 60))
+        tableView.addPullToRefreshWithAction({
+            NSOperationQueue().addOperationWithBlock {
+                self.getInfos()
+            }
+            }, withAnimator: simpleAnimator)
+        tableView.startPullToRefresh()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -115,8 +115,8 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var vc = TabDetailViewController()
-        var indexPath = tableView.indexPathForSelectedRow()
+        let vc = TabDetailViewController()
+        let indexPath = tableView.indexPathForSelectedRow
         if let index = indexPath {
             vc.info = infos[index.row]
         }
@@ -124,8 +124,8 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(CELLNAME, forIndexPath: indexPath) as! TabViewCell
-        var index = indexPath.row as Int
+        let cell = tableView.dequeueReusableCellWithIdentifier(CELLNAME, forIndexPath: indexPath) as! TabViewCell
+        let index = indexPath.row as Int
         
         if let id = infos[index]["avatar"].string {
             if let url = NSURL(string: "http:\(id)") {

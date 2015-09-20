@@ -1,1 +1,0 @@
-PODS_KANNA_OTHER_LDFLAGS = -l"xml2"

@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     lazy var pageMenu: CAPSPageMenu = {
         var vcs : [UIViewController] = []
         
-        for item in [("技术", "tech"), ("创意", "creative"), ("好玩", "play"), ("Apple", "apple"), ("酷工作", "jobs"), ("交易", "deals"), ("城市", "city"), ("问与答", "qna"), ("最热", "hot"), ("全部", "all"), ("R2", "r2"), ("节点", "nodes")] {
+        for item in Config.tabMenus {
             var vc = TabViewController()
             vc.title = item.0
             vc.tabCategory = item.1
@@ -48,24 +48,12 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(pageMenu.view)
-        navigationController?.navigationBar.topItem!.title = "v2ex"
+        navigationController?.navigationBar.topItem!.title = Config.appName
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
         navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
         navigationController?.navigationBar.tintColor = UIColor.blackColor()
-//        navigationController?.navigationBar.shadowImage = nil
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-//        navigationController?.setNavigationBarHidden(true, animated: true)
         
         addLeftBarButtonWithImage(UIImage(named: "ic_menu")!)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        let vc = segue.destinationViewController as! GuillotineMenuViewController
-        vc.hostNavigationBarHeight = self.navigationController!.navigationBar.frame.size.height
-        vc.hostTitleText = self.navigationItem.title
-        vc.view.backgroundColor = self.navigationController!.navigationBar.barTintColor
-        vc.setMenuButtonWithImage(barButton.imageView!.image!)
     }
 
 }

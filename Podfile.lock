@@ -1,34 +1,34 @@
 PODS:
-  - Alamofire (1.3.1)
-  - Kanna (0.1.2)
-  - Kingfisher (1.4.5)
+  - Alamofire (2.0.1)
+  - Kanna (1.0.0)
+  - Kingfisher (1.6.0)
   - PageMenu (1.2.8)
   - Refresher (0.2.0)
-  - SlideMenuControllerSwift (1.2.3)
-  - SnapKit (0.13.0)
-  - SwiftHTTP (0.9.5)
-  - SwiftyJSON (2.2.1)
+  - SlideMenuControllerSwift (2.0.0)
+  - SnapKit (0.14.0)
+  - SwiftHTTP (1.0.0)
+  - SwiftyJSON (2.3.0)
 
 DEPENDENCIES:
   - Alamofire
   - Kanna
-  - Kingfisher (~> 1.4)
+  - Kingfisher
   - PageMenu
   - Refresher
-  - SlideMenuControllerSwift (= 1.2.3)
+  - SlideMenuControllerSwift
   - SnapKit
   - SwiftHTTP
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: e4ab637e3195b645c814b87a652373439e59f2a4
-  Kanna: c1c58cee98ec72f0ff9823462d0b2013d084776f
-  Kingfisher: 22fa7d41c83b214c19fbb82a77a9db52300b3719
+  Alamofire: 1d8e208d616fbbfd2391b15eae766d07c96cdc49
+  Kanna: 92799095ecb17b85ac2444bb5c8ce6394a137adb
+  Kingfisher: 3308d487e5c2a0fba9c1054fc3b8c45923e03c40
   PageMenu: 703e82e173f54a4626ab88fcdca7703ee52e0cbe
   Refresher: 6046b197b012d1f1919d77bc94443bf64eb3615c
-  SlideMenuControllerSwift: a0ca252f34956d5bfe8259e03ad987cac91d2a74
-  SnapKit: 69fe274c71511df89a5591c11437a8b826bfa9eb
-  SwiftHTTP: cd7b248bc07db02926ff54cf19b580b78f7abfa1
-  SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
+  SlideMenuControllerSwift: 85ce7142935a32e26de41aa90fac0cc9f60fb01c
+  SnapKit: f42352ef34953866da0de1e1009c2ff82588a95e
+  SwiftHTTP: 9cc47717bb09f60ee842f998b50bdad50c842c4c
+  SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
 
 COCOAPODS: 0.37.2

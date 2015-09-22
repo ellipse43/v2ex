@@ -11,13 +11,14 @@
 		74280C251B806E8F00BAE87F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74280C241B806E8F00BAE87F /* HomeViewController.swift */; };
 		74280C271B80C59E00BAE87F /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74280C261B80C59E00BAE87F /* TabViewController.swift */; };
 		74280C291B80D74E00BAE87F /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74280C281B80D74E00BAE87F /* AppUtils.swift */; };
-		742FB84E1B983765003DC360 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742FB84D1B983765003DC360 /* MenuViewController.swift */; };
 		742FB8521B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 742FB8511B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		742FB8551B9E8A47003DC360 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742FB8541B9E8A47003DC360 /* ProfileViewController.swift */; };
 		744BD5591B819792008C400D /* SimpleAnimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744BD5581B819792008C400D /* SimpleAnimate.swift */; };
 		745B0BBD1B7E59990025BFF2 /* TabViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BBC1B7E59990025BFF2 /* TabViewCell.swift */; };
 		745B0BBF1B7F0D110025BFF2 /* TabDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BBE1B7F0D110025BFF2 /* TabDetailViewController.swift */; };
 		745B0BC11B7FAA8F0025BFF2 /* TabRepliesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BC01B7FAA8F0025BFF2 /* TabRepliesViewCell.swift */; };
+		747145AE1BB1181B0054C1FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747145AC1BB1181B0054C1FF /* MenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		747145AF1BB1181B0054C1FF /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 747145AD1BB1181B0054C1FF /* MenuViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		747CF4571B7E29970053AC7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747CF4561B7E29970053AC7A /* AppDelegate.swift */; };
 		747CF45C1B7E29970053AC7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747CF45A1B7E29970053AC7A /* Main.storyboard */; };
 		747CF45E1B7E29970053AC7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747CF45D1B7E29970053AC7A /* Images.xcassets */; };
@@ -40,7 +41,6 @@
 		74280C241B806E8F00BAE87F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		74280C261B80C59E00BAE87F /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		74280C281B80D74E00BAE87F /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
-		742FB84D1B983765003DC360 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		742FB84F1B9AE4AE003DC360 /* v2ex-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "v2ex-Bridging-Header.h"; sourceTree = "<group>"; };
 		742FB8501B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		742FB8511B9AE4AF003DC360 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		745B0BBC1B7E59990025BFF2 /* TabViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewCell.swift; sourceTree = "<group>"; };
 		745B0BBE1B7F0D110025BFF2 /* TabDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabDetailViewController.swift; sourceTree = "<group>"; };
 		745B0BC01B7FAA8F0025BFF2 /* TabRepliesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabRepliesViewCell.swift; sourceTree = "<group>"; };
+		747145AC1BB1181B0054C1FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		747145AD1BB1181B0054C1FF /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		747CF4511B7E29970053AC7A /* v2ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v2ex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747CF4551B7E29970053AC7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		747CF4561B7E29970053AC7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				74280C241B806E8F00BAE87F /* HomeViewController.swift */,
-				742FB84D1B983765003DC360 /* MenuViewController.swift */,
+				747145AC1BB1181B0054C1FF /* MenuViewController.swift */,
 				74280C261B80C59E00BAE87F /* TabViewController.swift */,
 				745B0BBE1B7F0D110025BFF2 /* TabDetailViewController.swift */,
 				742FB8541B9E8A47003DC360 /* ProfileViewController.swift */,
@@ -160,6 +162,7 @@
 				747CF4561B7E29970053AC7A /* AppDelegate.swift */,
 				742FB84F1B9AE4AE003DC360 /* v2ex-Bridging-Header.h */,
 				747CF45F1B7E29970053AC7A /* LaunchScreen.xib */,
+				747145AD1BB1181B0054C1FF /* MenuViewController.xib */,
 				747CF4551B7E29970053AC7A /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -294,6 +297,7 @@
 			files = (
 				747CF45C1B7E29970053AC7A /* Main.storyboard in Resources */,
 				747CF4611B7E29970053AC7A /* LaunchScreen.xib in Resources */,
+				747145AF1BB1181B0054C1FF /* MenuViewController.xib in Resources */,
 				747CF45E1B7E29970053AC7A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,7 +368,7 @@
 				744BD5591B819792008C400D /* SimpleAnimate.swift in Sources */,
 				74280C251B806E8F00BAE87F /* HomeViewController.swift in Sources */,
 				747CF4571B7E29970053AC7A /* AppDelegate.swift in Sources */,
-				742FB84E1B983765003DC360 /* MenuViewController.swift in Sources */,
+				747145AE1BB1181B0054C1FF /* MenuViewController.swift in Sources */,
 				745B0BBD1B7E59990025BFF2 /* TabViewCell.swift in Sources */,
 				742FB8551B9E8A47003DC360 /* ProfileViewController.swift in Sources */,
 				745B0BBF1B7F0D110025BFF2 /* TabDetailViewController.swift in Sources */,

@@ -19,6 +19,9 @@
 		745B0BC11B7FAA8F0025BFF2 /* TabRepliesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BC01B7FAA8F0025BFF2 /* TabRepliesViewCell.swift */; };
 		747145AE1BB1181B0054C1FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747145AC1BB1181B0054C1FF /* MenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		747145AF1BB1181B0054C1FF /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 747145AD1BB1181B0054C1FF /* MenuViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		747145B21BB13BD60054C1FF /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747145B01BB13BD60054C1FF /* AboutViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		747145B31BB13BD60054C1FF /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 747145B11BB13BD60054C1FF /* AboutViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		747145B51BB141200054C1FF /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747145B41BB141200054C1FF /* UIViewControllerExtension.swift */; settings = {ASSET_TAGS = (); }; };
 		747CF4571B7E29970053AC7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747CF4561B7E29970053AC7A /* AppDelegate.swift */; };
 		747CF45C1B7E29970053AC7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747CF45A1B7E29970053AC7A /* Main.storyboard */; };
 		747CF45E1B7E29970053AC7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747CF45D1B7E29970053AC7A /* Images.xcassets */; };
@@ -51,6 +54,9 @@
 		745B0BC01B7FAA8F0025BFF2 /* TabRepliesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabRepliesViewCell.swift; sourceTree = "<group>"; };
 		747145AC1BB1181B0054C1FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		747145AD1BB1181B0054C1FF /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		747145B01BB13BD60054C1FF /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		747145B11BB13BD60054C1FF /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		747145B41BB141200054C1FF /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		747CF4511B7E29970053AC7A /* v2ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v2ex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747CF4551B7E29970053AC7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		747CF4561B7E29970053AC7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				74280C241B806E8F00BAE87F /* HomeViewController.swift */,
+				747145B01BB13BD60054C1FF /* AboutViewController.swift */,
 				747145AC1BB1181B0054C1FF /* MenuViewController.swift */,
 				74280C261B80C59E00BAE87F /* TabViewController.swift */,
 				745B0BBE1B7F0D110025BFF2 /* TabDetailViewController.swift */,
@@ -121,6 +128,24 @@
 			name = FDFullscreenPopGesture;
 			sourceTree = "<group>";
 		};
+		747145B61BB147390054C1FF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				747145B41BB141200054C1FF /* UIViewControllerExtension.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		747145B71BB1477D0054C1FF /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				747CF45F1B7E29970053AC7A /* LaunchScreen.xib */,
+				747145AD1BB1181B0054C1FF /* MenuViewController.xib */,
+				747145B11BB13BD60054C1FF /* AboutViewController.xib */,
+			);
+			name = Xib;
+			sourceTree = "<group>";
+		};
 		747CF4481B7E29970053AC7A = {
 			isa = PBXGroup;
 			children = (
@@ -148,7 +173,9 @@
 				742FB8421B97583E003DC360 /* Model */,
 				742FB8431B97584A003DC360 /* View */,
 				742FB8411B975812003DC360 /* Controller */,
+				747145B61BB147390054C1FF /* Extension */,
 				749C6F871BADDDB3005E1EEA /* Utils */,
+				747145B71BB1477D0054C1FF /* Xib */,
 				747CF45A1B7E29970053AC7A /* Main.storyboard */,
 				747CF45D1B7E29970053AC7A /* Images.xcassets */,
 				747CF4541B7E29970053AC7A /* Supporting Files */,
@@ -161,8 +188,6 @@
 			children = (
 				747CF4561B7E29970053AC7A /* AppDelegate.swift */,
 				742FB84F1B9AE4AE003DC360 /* v2ex-Bridging-Header.h */,
-				747CF45F1B7E29970053AC7A /* LaunchScreen.xib */,
-				747145AD1BB1181B0054C1FF /* MenuViewController.xib */,
 				747CF4551B7E29970053AC7A /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -299,6 +324,7 @@
 				747CF4611B7E29970053AC7A /* LaunchScreen.xib in Resources */,
 				747145AF1BB1181B0054C1FF /* MenuViewController.xib in Resources */,
 				747CF45E1B7E29970053AC7A /* Images.xcassets in Resources */,
+				747145B31BB13BD60054C1FF /* AboutViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,8 +396,10 @@
 				747CF4571B7E29970053AC7A /* AppDelegate.swift in Sources */,
 				747145AE1BB1181B0054C1FF /* MenuViewController.swift in Sources */,
 				745B0BBD1B7E59990025BFF2 /* TabViewCell.swift in Sources */,
+				747145B21BB13BD60054C1FF /* AboutViewController.swift in Sources */,
 				742FB8551B9E8A47003DC360 /* ProfileViewController.swift in Sources */,
 				745B0BBF1B7F0D110025BFF2 /* TabDetailViewController.swift in Sources */,
+				747145B51BB141200054C1FF /* UIViewControllerExtension.swift in Sources */,
 				74280C271B80C59E00BAE87F /* TabViewController.swift in Sources */,
 				745B0BC11B7FAA8F0025BFF2 /* TabRepliesViewCell.swift in Sources */,
 				74280C291B80D74E00BAE87F /* AppUtils.swift in Sources */,

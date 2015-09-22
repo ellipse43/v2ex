@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let homeViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController") as! UINavigationController
+        let homeViewController = UINavigationController(rootViewController: storyboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController)
         let leftViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
-        
+        leftViewController.homeVC = homeViewController
         let slideMenuController = SlideMenuController(mainViewController: homeViewController, leftMenuViewController: leftViewController)
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()

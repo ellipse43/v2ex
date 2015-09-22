@@ -43,17 +43,16 @@ class HomeViewController: UIViewController {
         
         return v
     }()
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        setNavigationBarItem()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "v2ex"
         view.addSubview(pageMenu.view)
-        navigationController?.navigationBar.topItem!.title = Config.appName
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
-        navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-        navigationController?.navigationBar.tintColor = UIColor.blackColor()
-        
-        addLeftBarButtonWithImage(UIImage(named: "ic_menu")!)
     }
 
 }

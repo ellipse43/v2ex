@@ -48,7 +48,7 @@
         <!--Home View Controller-->
         <scene sceneID="0xc-jc-QC3">
             <objects>
-                <viewController id="2ZA-ym-bdr" customClass="HomeViewController" customModule="v2ex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="2ZA-ym-bdr" customClass="HomeViewController" customModule="v2ex" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kbp-3N-vo9"/>
                         <viewControllerLayoutGuide type="bottom" id="G43-ki-Q1o"/>
@@ -103,7 +103,7 @@
         <!--Navigation Controller-->
         <scene sceneID="TJP-US-dgE">
             <objects>
-                <navigationController storyboardIdentifier="HomeViewController" automaticallyAdjustsScrollViewInsets="NO" id="nUE-B0-ZGF" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nUE-B0-ZGF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SxA-iZ-3aO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

@@ -10,6 +10,13 @@ import UIKit
 
 class MenuViewController: UIViewController {
     
+    var homeVC: UINavigationController?
+    
+    lazy var aboutVC: AboutViewController = {
+        var v = AboutViewController()
+        return v
+    }()
+    
     override func loadView() {
         NSBundle.mainBundle().loadNibNamed("MenuViewController", owner: self, options: nil)
     }
@@ -18,6 +25,26 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func homeAction(sender: AnyObject) {
+        slideMenuController()?.changeMainViewController(homeVC!, close: true)
+        
+    }
     
-
+    @IBAction func hotTopicAction(sender: UIButton) {
+        
+    }
+    
+    @IBAction func feedbackAction(sender: UIButton) {
+        
+    }
+    
+    @IBAction func settingActiong(sender: UIButton) {
+        
+    }
+    
+    @IBAction func aboutAction(sender: UIButton) {
+        slideMenuController()?.changeMainViewController(UINavigationController(rootViewController: aboutVC), close: true)
+        
+    }
+    
 }

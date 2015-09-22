@@ -17,27 +17,39 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qB1-6N-vKE">
                     <rect key="frame" x="80" y="100" width="30" height="30"/>
-                    <state key="normal" title="登陆">
+                    <state key="normal" title="最新">
                         <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="homeAction:" destination="-1" eventType="touchUpInside" id="UnA-It-cd8"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZ5-Tl-bch">
                     <rect key="frame" x="80" y="350" width="30" height="30"/>
                     <state key="normal" title="设置">
                         <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="settingActiong:" destination="-1" eventType="touchUpInside" id="zmS-pL-x9G"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnL-YE-aaE">
                     <rect key="frame" x="80" y="300" width="30" height="30"/>
                     <state key="normal" title="反馈">
                         <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="feedbackAction:" destination="-1" eventType="touchUpInside" id="li8-cv-thA"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xL-Df-Mg6">
                     <rect key="frame" x="65" y="150" width="60" height="30"/>
                     <state key="normal" title="热议主题">
                         <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="hotTopicAction:" destination="-1" eventType="touchUpInside" id="QeI-oO-ru7"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84d-sR-bPJ">
                     <rect key="frame" x="65" y="200" width="60" height="30"/>
@@ -56,6 +68,15 @@
                     <state key="normal" title="关于">
                         <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="aboutAction:" destination="-1" eventType="touchUpInside" id="UIu-Nh-acO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmG-cW-nA8">
+                    <rect key="frame" x="80" y="50" width="30" height="30"/>
+                    <state key="normal" title="登陆">
+                        <color key="titleColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -71,9 +92,11 @@
                 <constraint firstItem="1DZ-PJ-EB6" firstAttribute="leading" secondItem="hZ5-Tl-bch" secondAttribute="leading" id="dgQ-eW-INZ"/>
                 <constraint firstItem="hZ5-Tl-bch" firstAttribute="leading" secondItem="hnL-YE-aaE" secondAttribute="leading" id="dvo-za-OJm"/>
                 <constraint firstItem="3xL-Df-Mg6" firstAttribute="centerX" secondItem="qB1-6N-vKE" secondAttribute="centerX" id="hEr-9R-d7M"/>
+                <constraint firstItem="qB1-6N-vKE" firstAttribute="top" secondItem="XmG-cW-nA8" secondAttribute="bottom" constant="20" id="iqj-TS-CUn"/>
                 <constraint firstItem="hnL-YE-aaE" firstAttribute="top" secondItem="OQb-Ri-jrN" secondAttribute="bottom" constant="20" id="ntV-PV-Jlf"/>
                 <constraint firstItem="qB1-6N-vKE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="80" id="uhv-Sf-QMG"/>
                 <constraint firstItem="OQb-Ri-jrN" firstAttribute="leading" secondItem="84d-sR-bPJ" secondAttribute="leading" id="wXf-RS-Hsl"/>
+                <constraint firstItem="XmG-cW-nA8" firstAttribute="leading" secondItem="qB1-6N-vKE" secondAttribute="leading" id="zdb-hj-o6e"/>
             </constraints>
             <point key="canvasLocation" x="208" y="330"/>
         </view>

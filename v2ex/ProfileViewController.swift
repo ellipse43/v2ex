@@ -17,8 +17,8 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     var un: String? {
         didSet {
             Alamofire.request(.GET, "http://www.v2ex.com/api/members/show.json", parameters: ["username": un!])
-                .responseJSON { (_, _, data) in
-                    let res = JSON(data.value!)
+                .response { (_, _, data, _) in
+                    let res = JSON(data!)
                     if let x = res["username"].string {
                         self.username.text = x
                     }

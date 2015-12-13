@@ -295,15 +295,15 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func getContent(id: String) {
         Alamofire.request(.GET, "http://www.v2ex.com/api/topics/show.json", parameters: ["id": id])
-            .responseJSON { (_, _, data) in
-                self.contentLabel.text = JSON(data.value!)[0]["content"].string
+            .response { (_, _, data, _) in
+                self.contentLabel.text = JSON(data!)[0]["content"].string
         }
     }
     
     func getReplies(id: String) {
         Alamofire.request(.GET, "http://www.v2ex.com/api/replies/show.json", parameters: ["topic_id": id])
-            .responseJSON { (_, _, data) in
-                self.replies = JSON(data.value!)
+            .response { (_, _, data, _) in
+                self.replies = JSON(data!)
                 self.tableView.stopPullToRefresh()
         }
     }

@@ -47,11 +47,11 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func getInfos() {
         Alamofire.request(.GET, String(format: Config.tabUrl, self.tabCategory!))
-            .responseString { (_, _, data) in
-                if data.isFailure {
+            .response { (_, _, data, error) in
+                if let _ = error {
                     NSLog("Error")
                 } else {
-                    if let doc = Kanna.HTML(html: data.value!, encoding: NSUTF8StringEncoding) {
+                    if let doc = Kanna.HTML(html: data!, encoding: NSUTF8StringEncoding) {
                         var _infos = [JSON]()
                         for node in doc.css("#Main > div:nth-child(2) > div.item") {
                             var d = Dictionary<String, String>()

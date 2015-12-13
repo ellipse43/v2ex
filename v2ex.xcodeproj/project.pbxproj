@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		497D63FDE0EE473CA1A82DCD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F104ABEEB5C2D05C38029EFD /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		497D63FDE0EE473CA1A82DCD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F104ABEEB5C2D05C38029EFD /* Pods.framework */; };
 		74280C251B806E8F00BAE87F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74280C241B806E8F00BAE87F /* HomeViewController.swift */; };
 		74280C271B80C59E00BAE87F /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74280C261B80C59E00BAE87F /* TabViewController.swift */; };
 		74280C291B80D74E00BAE87F /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74280C281B80D74E00BAE87F /* AppUtils.swift */; };
@@ -17,11 +17,11 @@
 		745B0BBD1B7E59990025BFF2 /* TabViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BBC1B7E59990025BFF2 /* TabViewCell.swift */; };
 		745B0BBF1B7F0D110025BFF2 /* TabDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BBE1B7F0D110025BFF2 /* TabDetailViewController.swift */; };
 		745B0BC11B7FAA8F0025BFF2 /* TabRepliesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B0BC01B7FAA8F0025BFF2 /* TabRepliesViewCell.swift */; };
-		747145AE1BB1181B0054C1FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747145AC1BB1181B0054C1FF /* MenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		747145AF1BB1181B0054C1FF /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 747145AD1BB1181B0054C1FF /* MenuViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		747145B21BB13BD60054C1FF /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747145B01BB13BD60054C1FF /* AboutViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		747145B31BB13BD60054C1FF /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 747145B11BB13BD60054C1FF /* AboutViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		747145B51BB141200054C1FF /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747145B41BB141200054C1FF /* UIViewControllerExtension.swift */; settings = {ASSET_TAGS = (); }; };
+		747145AE1BB1181B0054C1FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747145AC1BB1181B0054C1FF /* MenuViewController.swift */; };
+		747145AF1BB1181B0054C1FF /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 747145AD1BB1181B0054C1FF /* MenuViewController.xib */; };
+		747145B21BB13BD60054C1FF /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747145B01BB13BD60054C1FF /* AboutViewController.swift */; };
+		747145B31BB13BD60054C1FF /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 747145B11BB13BD60054C1FF /* AboutViewController.xib */; };
+		747145B51BB141200054C1FF /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747145B41BB141200054C1FF /* UIViewControllerExtension.swift */; };
 		747CF4571B7E29970053AC7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747CF4561B7E29970053AC7A /* AppDelegate.swift */; };
 		747CF45C1B7E29970053AC7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747CF45A1B7E29970053AC7A /* Main.storyboard */; };
 		747CF45E1B7E29970053AC7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747CF45D1B7E29970053AC7A /* Images.xcassets */; };
@@ -355,7 +355,7 @@
 		};
 		B973A1CAA5390BCE0C2FFECF /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -363,7 +363,7 @@
 			name = "Embed Pods Frameworks";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;

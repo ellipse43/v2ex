@@ -7,11 +7,40 @@
 //
 
 import Foundation
+import UIKit
 
 struct Config {
     static let appName = "v2ex"
     static let tabMenus = [("技术", "tech"), ("创意", "creative"), ("好玩", "play"), ("Apple", "apple"), ("酷工作", "jobs"), ("交易", "deals"), ("城市", "city"), ("问与答", "qna"), ("最热", "hot"), ("全部", "all"), ("R2", "r2"), ("节点", "nodes")]
     static let tabUrl = "http://www.v2ex.com/?tab=%@"
+    static let replyURL = "http://www.v2ex.com/api/replies/show.json"
+    static let topicURL = "http://www.v2ex.com/api/topics/show.json"
+    static let memberURL = "http://www.v2ex.com/api/members/show.json"
+}
+
+struct Color {
+    static let basic = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
+}
+
+struct Font {
+    static let basic = UIFont(name: "Helvetica Neue", size: 12)
+}
+
+struct Factory {
+    
+    static func createBasicLabel() -> UILabel {
+        let v = UILabel()
+        v.font = UIFont(name: "Helvetica Neue", size: 12)
+        v.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
+        return v
+    }
+    
+    static func createQuotationLabel(text: String) -> UILabel {
+        let v = UILabel()
+        v.font = UIFont(name: "Helvetica Neue", size: 28)
+        v.text = text
+        return v
+    }
 }
 
 struct Util {

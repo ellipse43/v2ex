@@ -8,6 +8,8 @@ PODS:
   - SnapKit (0.18.0)
   - SwiftHTTP (1.0.2)
   - SwiftyJSON (2.3.2)
+  - TTTAttributedLabel (1.13.4)
+  - TYAttributedLabel (2.5.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -19,6 +21,8 @@ DEPENDENCIES:
   - SnapKit
   - SwiftHTTP
   - SwiftyJSON
+  - TTTAttributedLabel
+  - TYAttributedLabel (~> 2.5.1)
 
 SPEC CHECKSUMS:
   Alamofire: 9f93b56389e48def9220dd57d1f44b1927229a5a
@@ -30,5 +34,7 @@ SPEC CHECKSUMS:
   SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
   SwiftHTTP: 6d8ca031a9ce613a01e8f18b497503887b0b50c0
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
+  TYAttributedLabel: 73d71abefe4901a930b357c6b6f6288bdcd96919
 
 COCOAPODS: 0.39.0

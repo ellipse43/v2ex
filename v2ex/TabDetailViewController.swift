@@ -80,31 +80,19 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     }()
     
     lazy var username: UILabel = {
-        var v = UILabel()
-        v.font = UIFont(name: "Helvetica Neue", size: 12)
-        v.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return v
+        return Factory.createBasicLabel()
     }()
     
     lazy var created: UILabel = {
-        var v = UILabel()
-        v.font = UIFont(name: "Helvetica Neue", size: 12)
-        v.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return v
+        return Factory.createBasicLabel()
     }()
     
     lazy var node: UILabel = {
-        var v = UILabel()
-        v.font = UIFont(name: "Helvetica Neue", size: 12)
-        v.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return v
+        return Factory.createBasicLabel()
     }()
     
     lazy var repliesL: UILabel = {
-        var v = UILabel()
-        v.font = UIFont(name: "Helvetica Neue", size: 12)
-        v.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return v
+        return Factory.createBasicLabel()
     }()
     
     lazy var repliesLogo: UIImageView = {
@@ -128,17 +116,11 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
 
     
     lazy var leftQuotationLabel: UILabel = {
-        var v = UILabel()
-        v.font = UIFont(name: "Helvetica Neue", size: 28)
-        v.text = "❝"
-        return v
+        return Factory.createQuotationLabel("❝")
     }()
     
     lazy var rightQuotationLabel: UILabel = {
-        var v = UILabel()
-        v.font = UIFont(name: "Helvetica Neue", size: 28)
-        v.text = "❞"
-        return v
+        return Factory.createQuotationLabel("❞")
     }()
 
     lazy var contentLabel: UILabel = {
@@ -284,6 +266,9 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             make.bottom.equalTo(rightQuotationLabel.snp_top).offset(0)
             make.left.equalTo(view).offset(15)
             make.right.equalTo(view).offset(-15)
+//            make.height.equalTo(200)
+//            make.width.equalTo(200)
+            make.width.equalTo(300)
         }
         
         repliesLabel.snp_makeConstraints { (make) -> Void in
@@ -294,16 +279,17 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func getContent(id: String) {
-        Alamofire.request(.GET, "http://www.v2ex.com/api/topics/show.json", parameters: ["id": id])
-            .response { (_, _, data, _) in
-                self.contentLabel.text = JSON(data!)[0]["content"].string
+        Alamofire.request(.GET, Config.topicURL, parameters: ["id": id])
+            .responseJSON { response in
+                print(JSON(response.result.value!)[0]["content"].string)
+                self.contentLabel.text = JSON(response.result.value!)[0]["content"].string
         }
     }
     
     func getReplies(id: String) {
-        Alamofire.request(.GET, "http://www.v2ex.com/api/replies/show.json", parameters: ["topic_id": id])
-            .response { (_, _, data, _) in
-                self.replies = JSON(data!)
+        Alamofire.request(.GET, Config.replyURL, parameters: ["topic_id": id])
+            .responseJSON { response in
+                self.replies = JSON(response.result.value!)
                 self.tableView.stopPullToRefresh()
         }
     }

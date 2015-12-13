@@ -16,9 +16,9 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
     var un: String? {
         didSet {
-            Alamofire.request(.GET, "http://www.v2ex.com/api/members/show.json", parameters: ["username": un!])
-                .response { (_, _, data, _) in
-                    let res = JSON(data!)
+            Alamofire.request(.GET, Config.memberURL, parameters: ["username": un!])
+                .responseJSON { response in
+                    let res = JSON(response.result.value!)
                     if let x = res["username"].string {
                         self.username.text = x
                     }
@@ -34,7 +34,6 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
                             }
                         }
                     }
-                    
             }
         }
     }

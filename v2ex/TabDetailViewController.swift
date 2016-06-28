@@ -108,7 +108,7 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         v.layer.masksToBounds = false
         v.layer.cornerRadius = 15
         v.clipsToBounds = true
-        var gesture = UITapGestureRecognizer(target: self, action: Selector("profileAction:"))
+        var gesture = UITapGestureRecognizer(target: self, action: #selector(TabDetailViewController.profileAction(_:)))
         v.addGestureRecognizer(gesture)
         v.userInteractionEnabled = true
         v.tag = -1
@@ -126,8 +126,6 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
 
     lazy var contentLabel: ActiveLabel = {
         var v = ActiveLabel()
-//        v.mentionEnabled = true
-//        v.URLEnabled = true
         v.font = UIFont(name: "Helvetica Neue", size: 16)
         v.lineBreakMode = NSLineBreakMode.ByWordWrapping
         v.numberOfLines = 0
@@ -196,7 +194,7 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     func setup() {
         let back = UIButton(type: UIButtonType.Custom)
         back.setImage(UIImage(named: "back"), forState: UIControlState.Normal)
-        back.addTarget(self, action: "backAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        back.addTarget(self, action: #selector(TabDetailViewController.backAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         back.contentEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0)
         back.sizeToFit()
         let backItem = UIBarButtonItem(customView: back)
@@ -325,7 +323,7 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         // fix
-        let gesture = UITapGestureRecognizer(target: self, action: Selector("profileAction:"))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(TabDetailViewController.profileAction(_:)))
         cell.avatar.addGestureRecognizer(gesture)
         cell.avatar.userInteractionEnabled = true
         cell.avatar.tag = index

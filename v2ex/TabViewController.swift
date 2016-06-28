@@ -18,6 +18,8 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     let CELLNAME = "tabViewCell"
     var parentNavigationController: UINavigationController?
     var tabCategory: String?
+    var currentIdx: Int?
+    var isRefresh = false
     
     var infos: JSON = [] {
         didSet {
@@ -39,10 +41,25 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        if currentIdx == 0 {
+            refresh()
+        }
     }
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    func refresh() {
+        isRefresh = true
+        let simpleAnimator = SimpleAnimator(frame: CGRectMake(0, 0, 320, 60))
+        tableView.addPullToRefreshWithAction({
+            NSOperationQueue().addOperationWithBlock {
+                self.getInfos()
+            }
+            }, withAnimator: simpleAnimator)
+        tableView.startPullToRefresh()
     }
     
     func getInfos() {
@@ -100,14 +117,6 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(view).inset(UIEdgeInsetsMake(0, 0, 0, 0))
         }
-        
-        let simpleAnimator = SimpleAnimator(frame: CGRectMake(0, 0, 320, 60))
-        tableView.addPullToRefreshWithAction({
-            NSOperationQueue().addOperationWithBlock {
-                self.getInfos()
-            }
-            }, withAnimator: simpleAnimator)
-        tableView.startPullToRefresh()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

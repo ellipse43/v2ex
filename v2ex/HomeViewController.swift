@@ -9,18 +9,18 @@
 import UIKit
 import PageMenu
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, CAPSPageMenuDelegate {
     
     @IBOutlet weak var barButton: UIButton!
-    
     lazy var pageMenu: CAPSPageMenu = {
         var vcs : [UIViewController] = []
         
-        for item in Config.tabMenus {
+        for (idx, item) in Config.tabMenus.enumerate() {
             var vc = TabViewController()
             vc.title = item.0
             vc.tabCategory = item.1
             vc.parentNavigationController = self.navigationController
+            vc.currentIdx = idx
             vcs.append(vc)
         }
         
@@ -40,6 +40,7 @@ class HomeViewController: UIViewController {
         var _height = UIApplication.sharedApplication().statusBarFrame.size.height + self.navigationController!.navigationBar.frame.size.height
         var v = CAPSPageMenu(viewControllers: vcs, frame: CGRectMake(0.0, _height, self.view.frame.width, self.view.frame.height - _height), pageMenuOptions: args)
         
+        v.delegate = self
         return v
     }()
     
@@ -52,6 +53,17 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         title = "v2ex"
         view.addSubview(pageMenu.view)
+    }
+    
+    func willMoveToPage(controller: UIViewController, index: Int) {
+        
+    }
+    
+    func didMoveToPage(controller: UIViewController, index: Int) {
+        let vc = controller as! TabViewController
+        if vc.isRefresh == false {
+            vc.refresh()
+        }
     }
 
 }

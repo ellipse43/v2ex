@@ -5,7 +5,6 @@ PODS:
   - Kingfisher (2.0.3)
   - PageMenu (1.2.9)
   - Refresher (0.5.0)
-  - SlideMenuControllerSwift (2.0.5)
   - SnapKit (0.19.1)
   - SwiftHTTP (1.0.4)
   - SwiftyJSON (2.3.2)
@@ -17,7 +16,6 @@ DEPENDENCIES:
   - Kingfisher
   - PageMenu
   - Refresher
-  - SlideMenuControllerSwift
   - SnapKit
   - SwiftHTTP
   - SwiftyJSON
@@ -29,11 +27,10 @@ SPEC CHECKSUMS:
   Kingfisher: 44c1f1912f19371a67d701e67c96d6bb45ca1c8d
   PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
   Refresher: 485f5990e6315add7f3470db5a4ca106451b11d3
-  SlideMenuControllerSwift: 9dcae36265e14c4f42e729f212463beb60d2cf96
   SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
   SwiftHTTP: 7e084af3bf628b17589c7b61a9df8750947a9813
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: e044eb0cd9ffae4ac185b79f42a0319c6d7589e2
+PODFILE CHECKSUM: 6a3ea20fcf7f7c22483edd9bf9aa74ca909bcc4a
 
 COCOAPODS: 1.0.1

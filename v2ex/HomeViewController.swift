@@ -8,7 +8,6 @@
 
 import UIKit
 import PageMenu
-import SlideMenuControllerSwift
 
 class HomeViewController: UIViewController {
     

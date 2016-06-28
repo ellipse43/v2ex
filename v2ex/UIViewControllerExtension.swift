@@ -15,13 +15,9 @@ extension UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
         navigationController?.navigationBar.tintColor = UIColor.blackColor()
         navigationController?.navigationBar.backgroundColor = UIColor.whiteColor()
-        addLeftBarButtonWithImage(UIImage(named: "ic_menu")!)
-        self.slideMenuController()?.removeLeftGestures()
-        self.slideMenuController()?.addLeftGestures()
     }
     
     func removeNavigationBarItem() {
         self.navigationItem.leftBarButtonItem = nil
-        self.slideMenuController()?.removeLeftGestures()
     }
 }

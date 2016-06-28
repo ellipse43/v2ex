@@ -11,6 +11,5 @@ target 'v2ex' do
     pod 'Kanna'
     pod 'Refresher'
     pod 'Kingfisher'
-    pod 'SlideMenuControllerSwift'
     pod 'ActiveLabel'
 end

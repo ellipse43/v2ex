@@ -14,7 +14,6 @@ class TabViewCell: UITableViewCell {
         var v = UILabel()
         v.lineBreakMode = NSLineBreakMode.ByWordWrapping
         v.numberOfLines = 0
-        v.preferredMaxLayoutWidth = self.contentView.frame.size.width
         return v
     }()
     

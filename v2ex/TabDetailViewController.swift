@@ -11,6 +11,7 @@ import SwiftyJSON
 import Alamofire
 import Kanna
 import Kingfisher
+import ActiveLabel
 
 class TabDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -123,14 +124,15 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         return Factory.createQuotationLabel("❞")
     }()
 
-    lazy var contentLabel: UILabel = {
-        var v = UILabel()
+    lazy var contentLabel: ActiveLabel = {
+        var v = ActiveLabel()
+//        v.mentionEnabled = true
+//        v.URLEnabled = true
         v.font = UIFont(name: "Helvetica Neue", size: 16)
         v.lineBreakMode = NSLineBreakMode.ByWordWrapping
         v.numberOfLines = 0
         return v
     }()
-    
     
 //     fix
     lazy var scrollView: UIScrollView = {
@@ -266,9 +268,6 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             make.bottom.equalTo(rightQuotationLabel.snp_top).offset(0)
             make.left.equalTo(view).offset(15)
             make.right.equalTo(view).offset(-15)
-//            make.height.equalTo(200)
-//            make.width.equalTo(200)
-            make.width.equalTo(300)
         }
         
         repliesLabel.snp_makeConstraints { (make) -> Void in
@@ -281,7 +280,6 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     func getContent(id: String) {
         Alamofire.request(.GET, Config.topicURL, parameters: ["id": id])
             .responseJSON { response in
-                print(JSON(response.result.value!)[0]["content"].string)
                 self.contentLabel.text = JSON(response.result.value!)[0]["content"].string
         }
     }
@@ -332,6 +330,14 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.avatar.userInteractionEnabled = true
         cell.avatar.tag = index
         
+        cell.content.handleMentionTap { (user: String) -> () in
+            self.profileView(user)
+        }
+        
+        cell.content.handleURLTap { (url: NSURL) -> () in
+            
+        }
+        
         return cell
     }
     
@@ -357,4 +363,13 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         navigationController?.pushViewController(profileVC!, animated: true)
     }
+    
+    func profileView(user: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileVC = storyboard.instantiateViewControllerWithIdentifier("profileVC") as? ProfileViewController
+        profileVC?.un = user
+        self.navigationController?.pushViewController(profileVC!, animated: true)
+    }
+    
+    
 }

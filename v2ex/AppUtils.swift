@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import ActiveLabel
 
 struct Config {
     static let appName = "v2ex"
@@ -20,6 +21,7 @@ struct Config {
 
 struct Color {
     static let basic = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
+    static let black = UIColor.blackColor()
 }
 
 struct Font {
@@ -39,6 +41,20 @@ struct Factory {
         let v = UILabel()
         v.font = UIFont(name: "Helvetica Neue", size: 28)
         v.text = text
+        return v
+    }
+    
+    static func createActiveLabel() -> ActiveLabel {
+        let v = ActiveLabel()
+//        v.mentionEnabled = true
+//        v.URLEnabled = true
+        v.mentionColor = Color.basic
+        v.mentionSelectedColor = Color.basic
+        v.URLColor = Color.basic
+        v.URLSelectedColor = Color.basic
+        v.lineSpacing = 2
+        v.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        v.numberOfLines = 0
         return v
     }
 }

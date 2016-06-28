@@ -7,47 +7,29 @@
 //
 
 import UIKit
+import ActiveLabel
 
 class TabRepliesViewCell: UITableViewCell {
     
-    lazy var content: UILabel = {
-        var _l = UILabel()
-        _l.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        _l.numberOfLines = 0
-        // fix
-        let attributes = [
-            NSUnderlineStyleAttributeName : 1,
-            NSBackgroundColorAttributeName : UIColor.grayColor(),
-            NSTextEffectAttributeName : NSTextEffectLetterpressStyle,
-            NSStrokeWidthAttributeName : 3.0
-        ]
-        
-        _l.attributedText = NSAttributedString(string: "NSAttributedString", attributes: attributes)
-                //        _l.preferredMaxLayoutWidth = self.contentView.frame.size.width
-        return _l
+    lazy var content: ActiveLabel = {
+        return Factory.createActiveLabel()
     }()
     
     lazy var username: UILabel = {
-        var _l = UILabel()
-        _l.font = UIFont(name: "Helvetica Neue", size: 12)
-        _l.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return _l
+        return Factory.createBasicLabel()
     }()
     
     lazy var created: UILabel = {
-        var _l = UILabel()
-        _l.font = UIFont(name: "Helvetica Neue", size: 12)
-        _l.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return _l
+        return Factory.createBasicLabel()
     }()
     
     lazy var avatar: UIImageView = {
-        var _i = UIImageView()
-        _i.backgroundColor = UIColor.blackColor()
-        _i.layer.masksToBounds = false
-        _i.layer.cornerRadius = 15
-        _i.clipsToBounds = true
-        return _i
+        let v = UIImageView()
+        v.backgroundColor = UIColor.blackColor()
+        v.layer.masksToBounds = false
+        v.layer.cornerRadius = 15
+        v.clipsToBounds = true
+        return v
     }()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

@@ -1,17 +1,17 @@
 PODS:
-  - Alamofire (3.1.3)
-  - Kanna (1.0.3)
-  - Kingfisher (1.8.4)
-  - PageMenu (1.2.8)
+  - ActiveLabel (0.5.1)
+  - Alamofire (3.2.0)
+  - Kanna (1.0.4)
+  - Kingfisher (2.0.3)
+  - PageMenu (1.2.9)
   - Refresher (0.5.0)
   - SlideMenuControllerSwift (2.0.5)
-  - SnapKit (0.18.0)
-  - SwiftHTTP (1.0.2)
+  - SnapKit (0.19.1)
+  - SwiftHTTP (1.0.4)
   - SwiftyJSON (2.3.2)
-  - TTTAttributedLabel (1.13.4)
-  - TYAttributedLabel (2.5.1)
 
 DEPENDENCIES:
+  - ActiveLabel
   - Alamofire
   - Kanna
   - Kingfisher
@@ -21,20 +21,19 @@ DEPENDENCIES:
   - SnapKit
   - SwiftHTTP
   - SwiftyJSON
-  - TTTAttributedLabel
-  - TYAttributedLabel (~> 2.5.1)
 
 SPEC CHECKSUMS:
-  Alamofire: 9f93b56389e48def9220dd57d1f44b1927229a5a
-  Kanna: 10c7f20762846e808ec5716e4191427bd71bf1c2
-  Kingfisher: e5a5e1660822b16580fd7ac79d69d6328190daf0
-  PageMenu: 703e82e173f54a4626ab88fcdca7703ee52e0cbe
+  ActiveLabel: 2360173515b6afabad23610824c222cc626d2166
+  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  Kanna: 537762df5e2203714769f8351340b3c724adb2bd
+  Kingfisher: 44c1f1912f19371a67d701e67c96d6bb45ca1c8d
+  PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
   Refresher: 485f5990e6315add7f3470db5a4ca106451b11d3
   SlideMenuControllerSwift: 9dcae36265e14c4f42e729f212463beb60d2cf96
-  SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
-  SwiftHTTP: 6d8ca031a9ce613a01e8f18b497503887b0b50c0
+  SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
+  SwiftHTTP: 7e084af3bf628b17589c7b61a9df8750947a9813
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
-  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
-  TYAttributedLabel: 73d71abefe4901a930b357c6b6f6288bdcd96919
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: e044eb0cd9ffae4ac185b79f42a0319c6d7589e2
+
+COCOAPODS: 1.0.1

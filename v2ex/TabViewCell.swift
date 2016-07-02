@@ -18,33 +18,20 @@ class TabViewCell: UITableViewCell {
     }()
     
     lazy var username: UILabel = {
-        var v = UILabel()
-        v.font = UIFont(name: "Helvetica Neue", size: 12)
-        v.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return v
+        return Factory.createBasicLabel();
     }()
 
     lazy var created: UILabel = {
-        var v = UILabel()
-        v.font = UIFont(name: "Helvetica Neue", size: 12)
-        v.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return v
+        return Factory.createBasicLabel();
     }()
     
     lazy var node: UILabel = {
-        var v = UILabel()
-        v.font = UIFont(name: "Helvetica Neue", size: 12)
-        v.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return v
+        return Factory.createBasicLabel();
     }()
     
     lazy var replies: UILabel = {
-        var v = UILabel()
-        v.font = UIFont(name: "Helvetica Neue", size: 12)
-        v.textColor = UIColor(red: 216 / 255, green: 216 / 255, blue: 216 / 255, alpha: 1)
-        return v
+        return Factory.createBasicLabel();
     }()
-    
     
     lazy var repliesLogo: UIImageView = {
         var v = UIImageView()

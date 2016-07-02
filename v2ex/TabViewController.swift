@@ -46,7 +46,6 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -55,9 +54,7 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         isRefresh = true
         let simpleAnimator = SimpleAnimator(frame: CGRectMake(0, 0, 320, 60))
         tableView.addPullToRefreshWithAction({
-            NSOperationQueue().addOperationWithBlock {
                 self.getInfos()
-            }
             }, withAnimator: simpleAnimator)
         tableView.startPullToRefresh()
     }

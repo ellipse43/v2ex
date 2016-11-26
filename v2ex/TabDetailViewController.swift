@@ -15,8 +15,8 @@ import ActiveLabel
 
 class TabDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    private let CELLNAME = "tabDetailViewCell"
-    private var flag = true
+    fileprivate let CELLNAME = "tabDetailViewCell"
+    fileprivate var flag = true
     
     var info: JSON = JSON(Dictionary<String, JSON>()) {
         didSet {
@@ -47,9 +47,9 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             
             if let id = info["avatar"].string {
-                if let url = NSURL(string: "http:\(id)") {
-                    if let _ = NSData(contentsOfURL: url){
-                        avatar.kf_setImageWithResource(Resource(downloadURL: url), placeholderImage: nil, optionsInfo: nil)
+                if let url = URL(string: "http:\(id)") {
+                    if let _ = try? Data(contentsOf: url){
+                        avatar.kf.setImage(with: ImageResource.init(downloadURL: url), placeholder: nil, options: nil)
                     }
                 }
             }
@@ -69,13 +69,13 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     
     lazy var header: UIView = {
         var v = UIView()
-        v.backgroundColor = UIColor.whiteColor()
+        v.backgroundColor = UIColor.white
         return v
     }()
     
     lazy var _title: UILabel = {
         var v = UILabel()
-        v.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        v.lineBreakMode = NSLineBreakMode.byWordWrapping
         v.numberOfLines = 0
         return v
     }()
@@ -104,13 +104,13 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     
     lazy var avatar: UIImageView = {
         var v = UIImageView()
-        v.backgroundColor = UIColor.blackColor()
+        v.backgroundColor = UIColor.black
         v.layer.masksToBounds = false
         v.layer.cornerRadius = 15
         v.clipsToBounds = true
         var gesture = UITapGestureRecognizer(target: self, action: #selector(TabDetailViewController.profileAction(_:)))
         v.addGestureRecognizer(gesture)
-        v.userInteractionEnabled = true
+        v.isUserInteractionEnabled = true
         v.tag = -1
         return v
     }()
@@ -127,7 +127,7 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     lazy var contentLabel: ActiveLabel = {
         var v = ActiveLabel()
         v.font = UIFont(name: "Helvetica Neue", size: 16)
-        v.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        v.lineBreakMode = NSLineBreakMode.byWordWrapping
         v.numberOfLines = 0
         return v
     }()
@@ -135,9 +135,9 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
 //     fix
     lazy var scrollView: UIScrollView = {
         var v = UIScrollView()
-        v.frame = UIScreen.mainScreen().bounds
-        v.scrollEnabled = true
-        v.backgroundColor = UIColor.whiteColor()
+        v.frame = UIScreen.main.bounds
+        v.isScrollEnabled = true
+        v.backgroundColor = UIColor.white
         return v
     }()
     
@@ -150,10 +150,10 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         var v = UITableView()
         v.delegate = self
         v.dataSource = self
-        v.registerClass(TabRepliesViewCell.self, forCellReuseIdentifier: self.CELLNAME)
+        v.register(TabRepliesViewCell.self, forCellReuseIdentifier: self.CELLNAME)
         v.estimatedRowHeight = 100
         v.rowHeight = UITableViewAutomaticDimension
-        v.separatorStyle = UITableViewCellSeparatorStyle.None
+        v.separatorStyle = UITableViewCellSeparatorStyle.none
         v.tableHeaderView = UIView()
         return v
     }()
@@ -163,23 +163,23 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         setup()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         var height = CGFloat(0)
-        for v in [_title, avatar, username, contentLabel, leftQuotationLabel, rightQuotationLabel, repliesLabel] {
-            height += v.frame.size.height
+        for v in [_title, avatar, username, contentLabel, leftQuotationLabel, rightQuotationLabel, repliesLabel] as [Any] {
+            height += (v as AnyObject).frame.size.height
         }
         
-        header.frame.size = CGSize(width: UIScreen.mainScreen().bounds.size.width, height: height + navigationController!.navigationBar.frame.height)
+        header.frame.size = CGSize(width: UIScreen.main.bounds.size.width, height: height + navigationController!.navigationBar.frame.height)
         tableView.tableHeaderView = header
         
-        scrollView.contentSize = CGSize(width: UIScreen.mainScreen().bounds.size.width, height: height)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: height)
         
         if let id = info["id"].string {
-            let simpleAnimator = SimpleAnimator(frame: CGRectMake(0, 0, 320, 60))
+            let simpleAnimator = SimpleAnimator(frame: CGRect(x: 0, y: 0, width: 320, height: 60))
             tableView.addPullToRefreshWithAction({
-                NSOperationQueue().addOperationWithBlock {
+                OperationQueue().addOperation {
                     self.getReplies(id)
                 }
             }, withAnimator: simpleAnimator)
@@ -192,9 +192,9 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func setup() {
-        let back = UIButton(type: UIButtonType.Custom)
-        back.setImage(UIImage(named: "back"), forState: UIControlState.Normal)
-        back.addTarget(self, action: #selector(TabDetailViewController.backAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        let back = UIButton(type: UIButtonType.custom)
+        back.setImage(UIImage(named: "back"), for: UIControlState())
+        back.addTarget(self, action: #selector(TabDetailViewController.backAction(_:)), for: UIControlEvents.touchUpInside)
         back.contentEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0)
         back.sizeToFit()
         let backItem = UIBarButtonItem(customView: back)
@@ -202,10 +202,10 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         
         navigationController?.navigationBar.shadowImage = nil
         
-        for v in [_title, avatar, username, created, repliesL, repliesLogo, node, contentLabel, leftQuotationLabel, rightQuotationLabel, repliesLabel] {
-            header.addSubview(v)
+        for v in [_title, avatar, username, created, repliesL, repliesLogo, node, contentLabel, leftQuotationLabel, rightQuotationLabel, repliesLabel] as [Any] {
+            header.addSubview(v as! UIView)
         }
-        header.frame.size = CGSize(width: UIScreen.mainScreen().bounds.size.width, height: 1000)
+        header.frame.size = CGSize(width: UIScreen.main.bounds.size.width, height: 1000)
         tableView.tableHeaderView = header
         view.addSubview(tableView)
         
@@ -275,36 +275,36 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
 
     }
     
-    func getContent(id: String) {
-        Alamofire.request(.GET, Config.topicURL, parameters: ["id": id])
+    func getContent(_ id: String) {
+        Alamofire.request(Config.topicURL, method: .get, parameters: ["id": id])
             .responseJSON { response in
                 self.contentLabel.text = JSON(response.result.value!)[0]["content"].string
         }
     }
     
-    func getReplies(id: String) {
-        Alamofire.request(.GET, Config.replyURL, parameters: ["topic_id": id])
+    func getReplies(_ id: String) {
+        Alamofire.request(Config.replyURL, method: .get, parameters: ["topic_id": id])
             .responseJSON { response in
                 self.replies = JSON(response.result.value!)
                 self.tableView.stopPullToRefresh()
         }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return replies.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(CELLNAME, forIndexPath: indexPath) as! TabRepliesViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CELLNAME, for: indexPath) as! TabRepliesViewCell
         let index = indexPath.row as Int
         
         if let id = replies[index]["member"]["avatar_large"].string {
-            if let url = NSURL(string: "http:\(id)") {
-                cell.avatar.kf_setImageWithResource(Resource(downloadURL: url), placeholderImage: nil, optionsInfo: nil)
+            if let url = URL(string: "http:\(id)") {
+                cell.avatar.kf.setImage(with: ImageResource.init(downloadURL: url), placeholder: nil, options: nil)
             }
         }
         
@@ -321,35 +321,35 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.created.text = Util.timePrettify(id)
         }
         
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         // fix
         let gesture = UITapGestureRecognizer(target: self, action: #selector(TabDetailViewController.profileAction(_:)))
         cell.avatar.addGestureRecognizer(gesture)
-        cell.avatar.userInteractionEnabled = true
+        cell.avatar.isUserInteractionEnabled = true
         cell.avatar.tag = index
         
         cell.content.handleMentionTap { (user: String) -> () in
             self.profileView(user)
         }
         
-        cell.content.handleURLTap { (url: NSURL) -> () in
+        cell.content.handleURLTap { (url: URL) -> () in
             
         }
         
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
     
-    func backAction(sender: UIButton) {
-        navigationController?.popViewControllerAnimated(true)
+    func backAction(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
     
-    func profileAction(sender: UITapGestureRecognizer) {
+    func profileAction(_ sender: UITapGestureRecognizer) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let profileVC = storyboard.instantiateViewControllerWithIdentifier("profileVC") as? ProfileViewController
+        let profileVC = storyboard.instantiateViewController(withIdentifier: "profileVC") as? ProfileViewController
         if sender.view!.tag == -1 {
             if let username = info["username"].string {
                 profileVC!.un = username
@@ -362,9 +362,9 @@ class TabDetailViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationController?.pushViewController(profileVC!, animated: true)
     }
     
-    func profileView(user: String) {
+    func profileView(_ user: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let profileVC = storyboard.instantiateViewControllerWithIdentifier("profileVC") as? ProfileViewController
+        let profileVC = storyboard.instantiateViewController(withIdentifier: "profileVC") as? ProfileViewController
         profileVC?.un = user
         self.navigationController?.pushViewController(profileVC!, animated: true)
     }

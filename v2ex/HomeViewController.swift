@@ -15,7 +15,7 @@ class HomeViewController: UIViewController, CAPSPageMenuDelegate {
     lazy var pageMenu: CAPSPageMenu = {
         var vcs : [UIViewController] = []
         
-        for (idx, item) in Config.tabMenus.enumerate() {
+        for (idx, item) in Config.tabMenus.enumerated() {
             var vc = TabViewController()
             vc.title = item.0
             vc.tabCategory = item.1
@@ -25,26 +25,26 @@ class HomeViewController: UIViewController, CAPSPageMenuDelegate {
         }
         
         var args: [CAPSPageMenuOption] = [
-            .ScrollMenuBackgroundColor(UIColor.whiteColor()),
-            .ViewBackgroundColor(UIColor.whiteColor()),
-            .SelectionIndicatorColor(UIColor.blackColor()),
-            .BottomMenuHairlineColor(UIColor.blackColor()),
-            .SelectedMenuItemLabelColor(UIColor.blackColor()),
-            .MenuItemFont(UIFont(name: "HelveticaNeue", size: 13.0)!),
-            .MenuHeight(40.0),
-            .MenuMargin(20.0),
-            .MenuItemWidth(40.0),
-            .CenterMenuItems(true)
+            .scrollMenuBackgroundColor(UIColor.white),
+            .viewBackgroundColor(UIColor.white),
+            .selectionIndicatorColor(UIColor.black),
+            .bottomMenuHairlineColor(UIColor.black),
+            .selectedMenuItemLabelColor(UIColor.black),
+            .menuItemFont(UIFont(name: "HelveticaNeue", size: 13.0)!),
+            .menuHeight(40.0),
+            .menuMargin(20.0),
+            .menuItemWidth(40.0),
+            .centerMenuItems(true)
         ]
         // fix: PageMenu Bug
-        var _height = UIApplication.sharedApplication().statusBarFrame.size.height + self.navigationController!.navigationBar.frame.size.height
-        var v = CAPSPageMenu(viewControllers: vcs, frame: CGRectMake(0.0, _height, self.view.frame.width, self.view.frame.height - _height), pageMenuOptions: args)
+        var _height = UIApplication.shared.statusBarFrame.size.height + self.navigationController!.navigationBar.frame.size.height
+        var v = CAPSPageMenu(viewControllers: vcs, frame: CGRect(x: 0.0, y: _height, width: self.view.frame.width, height: self.view.frame.height - _height), pageMenuOptions: args)
         
         v.delegate = self
         return v
     }()
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setNavigationBarItem()
     }
@@ -55,11 +55,11 @@ class HomeViewController: UIViewController, CAPSPageMenuDelegate {
         view.addSubview(pageMenu.view)
     }
     
-    func willMoveToPage(controller: UIViewController, index: Int) {
+    func willMoveToPage(_ controller: UIViewController, index: Int) {
         
     }
     
-    func didMoveToPage(controller: UIViewController, index: Int) {
+    func didMoveToPage(_ controller: UIViewController, index: Int) {
         let vc = controller as! TabViewController
         if vc.isRefresh == false {
             vc.refresh()

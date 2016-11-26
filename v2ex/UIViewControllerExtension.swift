@@ -11,10 +11,10 @@ import UIKit
 extension UIViewController {
     
     func setNavigationBarItem() {
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blackColor()]
-        navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-        navigationController?.navigationBar.tintColor = UIColor.blackColor()
-        navigationController?.navigationBar.backgroundColor = UIColor.whiteColor()
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
+        navigationController?.navigationBar.barTintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = UIColor.black
+        navigationController?.navigationBar.backgroundColor = UIColor.white
     }
     
     func removeNavigationBarItem() {

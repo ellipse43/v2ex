@@ -31,10 +31,10 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         var v = UITableView()
         v.delegate = self
         v.dataSource = self
-        v.registerClass(TabViewCell.self, forCellReuseIdentifier: self.CELLNAME)
+        v.register(TabViewCell.self, forCellReuseIdentifier: self.CELLNAME)
         v.estimatedRowHeight = 100
         v.rowHeight = UITableViewAutomaticDimension
-        v.separatorStyle = UITableViewCellSeparatorStyle.None
+        v.separatorStyle = UITableViewCellSeparatorStyle.none
         return v
     }()
     
@@ -46,13 +46,13 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
     func refresh() {
         isRefresh = true
-        let simpleAnimator = SimpleAnimator(frame: CGRectMake(0, 0, 320, 60))
+        let simpleAnimator = SimpleAnimator(frame: CGRect(x: 0, y: 0, width: 320, height: 60))
         tableView.addPullToRefreshWithAction({
                 self.getInfos()
             }, withAnimator: simpleAnimator)
@@ -60,18 +60,19 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func getInfos() {
-        Alamofire.request(.GET, String(format: Config.tabUrl, self.tabCategory!))
-            .response { (_, _, data, error) in
-                if let _ = error {
+        let uri: String = String(format: Config.tabUrl, self.tabCategory!)
+        Alamofire.request(uri)
+            .response { response in
+                if let _ = response.error {
                     NSLog("Error")
                 } else {
-                    if let doc = Kanna.HTML(html: data!, encoding: NSUTF8StringEncoding) {
+                    if let doc = Kanna.HTML(html: response.data!, encoding: String.Encoding.utf8) {
                         var _infos = [JSON]()
                         for node in doc.css("#Main > div:nth-child(2) > div.item") {
                             var d = Dictionary<String, String>()
                             if let title = node.at_css("table > tr > td:nth-child(3) > span.item_title > a") {
                                 if let id = title["href"] {
-                                    if let match = id.rangeOfString("\\d+", options: .RegularExpressionSearch) {
+                                    if let match = id.range(of: "\\d+", options: .regularExpression) {
                                         d["id"] = id[match]
                                     }
                                 }
@@ -101,7 +102,7 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                             _infos.append(JSON(d))
                         }
                         self.infos = JSON(_infos)
-                        NSOperationQueue.mainQueue().addOperationWithBlock {
+                        OperationQueue.main.addOperation {
                             self.tableView.stopPullToRefresh()
                         }
                     }
@@ -116,11 +117,11 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return infos.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = TabDetailViewController()
         let indexPath = tableView.indexPathForSelectedRow
         if let index = indexPath {
@@ -129,13 +130,13 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         parentNavigationController!.pushViewController(vc, animated: true)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(CELLNAME, forIndexPath: indexPath) as! TabViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CELLNAME, for: indexPath) as! TabViewCell
         let index = indexPath.row as Int
         
         if let id = infos[index]["avatar"].string {
-            if let url = NSURL(string: "http:\(id)") {
-                cell.avatar.kf_setImageWithResource(Resource(downloadURL: url), placeholderImage: nil, optionsInfo: nil)
+            if let url = URL(string: "http:\(id)") {
+                cell.avatar.kf.setImage(with: ImageResource.init(downloadURL: url))
             }
         }
         
@@ -160,7 +161,7 @@ class TabViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell.replies.text = id
         }
         
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         return cell
     }

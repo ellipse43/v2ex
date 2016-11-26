@@ -24,19 +24,19 @@ class SimpleAnimator: UIView, PullToRefreshViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func pullToRefresh(view: PullToRefreshView, progressDidChange progress: CGFloat) {
+    func pullToRefresh(_ view: PullToRefreshView, progressDidChange progress: CGFloat) {
         layerLoader.strokeEnd = progress
     }
     
-    func pullToRefresh(view: PullToRefreshView, stateDidChange state: PullToRefreshViewState) {
+    func pullToRefresh(_ view: PullToRefreshView, stateDidChange state: PullToRefreshViewState) {
         
     }
     
-    func pullToRefreshAnimationDidEnd(view: PullToRefreshView) {
+    func pullToRefreshAnimationDidEnd(_ view: PullToRefreshView) {
         layerLoader.removeAllAnimations()
     }
     
-    func pullToRefreshAnimationDidStart(view: PullToRefreshView) {
+    func pullToRefreshAnimationDidStart(_ view: PullToRefreshView) {
         if layerLoader.strokeEnd != 0.6 {
             layerLoader.strokeEnd = 0.6
         }
@@ -44,10 +44,10 @@ class SimpleAnimator: UIView, PullToRefreshViewDelegate {
         let pathAnimationEnd = CABasicAnimation(keyPath: "transform.rotation")
         pathAnimationEnd.duration = 1.5
         pathAnimationEnd.repeatCount = HUGE
-        pathAnimationEnd.removedOnCompletion = false
+        pathAnimationEnd.isRemovedOnCompletion = false
         pathAnimationEnd.fromValue = 0
         pathAnimationEnd.toValue = 2 * M_PI
-        layerLoader.addAnimation(pathAnimationEnd, forKey: "strokeEndAnimation")        
+        layerLoader.add(pathAnimationEnd, forKey: "strokeEndAnimation")        
     }
     
     override func layoutSubviews() {
@@ -55,24 +55,24 @@ class SimpleAnimator: UIView, PullToRefreshViewDelegate {
         if let superview = superview {
             if layerLoader.superlayer == nil {
                 layerLoader.lineWidth = 1
-                layerLoader.strokeColor = UIColor.blackColor().CGColor
-                layerLoader.fillColor = UIColor.clearColor().CGColor
+                layerLoader.strokeColor = UIColor.black.cgColor
+                layerLoader.fillColor = UIColor.clear.cgColor
                 layerLoader.strokeEnd = 0.6
                 layerLoader.lineCap = kCALineCapRound
                 superview.layer.addSublayer(layerLoader)
             }
             if imageLayer.superlayer == nil {
                 imageLayer.cornerRadius = 10.0
-                imageLayer.contents = UIImage(named:"refresh")?.CGImage
+                imageLayer.contents = UIImage(named:"refresh")?.cgImage
                 imageLayer.masksToBounds = true
                 imageLayer.frame = CGRect(x: superview.frame.size.width / 2 - 10, y: superview.frame.size.height / 2 - 10, width: 20.0, height: 20.0)
                 superview.layer.addSublayer(imageLayer)
             }
             let center = CGPoint(x: superview.frame.size.width / 2, y: superview.frame.size.height / 2)
             let bezierPathLoader = UIBezierPath(arcCenter: center, radius: CGFloat(10), startAngle: CGFloat(0), endAngle: CGFloat(2 * M_PI), clockwise: true)
-            layerLoader.path = bezierPathLoader.CGPath
-            layerLoader.bounds = CGPathGetBoundingBox(bezierPathLoader.CGPath)
-            layerLoader.frame = CGPathGetBoundingBox(bezierPathLoader.CGPath)
+            layerLoader.path = bezierPathLoader.cgPath
+            layerLoader.bounds = bezierPathLoader.cgPath.boundingBox
+            layerLoader.frame = bezierPathLoader.cgPath.boundingBox
         }
     }
 }

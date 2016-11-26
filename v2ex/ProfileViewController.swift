@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
     var un: String? {
         didSet {
-            Alamofire.request(.GET, Config.memberURL, parameters: ["username": un!])
+            Alamofire.request(Config.memberURL, method: .get, parameters: ["username": un!])
                 .responseJSON { response in
                     let res = JSON(response.result.value!)
                     if let x = res["username"].string {
@@ -28,9 +28,9 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
                     }
                     
                     if let x = res["avatar_large"].string {
-                        if let url = NSURL(string: "http:\(x)") {
-                            if let _ = NSData(contentsOfURL: url){
-                                self.avatar.kf_setImageWithResource(Resource(downloadURL: url), placeholderImage: nil, optionsInfo: nil)
+                        if let url = URL(string: "http:\(x)") {
+                            if let _ = try? Data(contentsOf: url){
+                                self.avatar.kf.setImage(with: ImageResource.init(downloadURL: url))
                             }
                         }
                     }
@@ -40,17 +40,17 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
     lazy var scrollView: UIScrollView = {
         var v = UIScrollView()
-        v.backgroundColor = UIColor.whiteColor()
-        v.scrollEnabled = true
+        v.backgroundColor = UIColor.white
+        v.isScrollEnabled = true
         // - self.navigationController!.navigationBar.frame.height
-        v.contentSize = CGSizeMake(UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height + 1)
+        v.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 1)
         v.delegate = self
         return v
     }()
     
     lazy var contentView: UIView = {
         var v = UIView()
-        v.backgroundColor = UIColor.whiteColor()
+        v.backgroundColor = UIColor.white
         return v
     }()
     
@@ -63,7 +63,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
     
     lazy var avatar: UIImageView = {
         var v = UIImageView()
-        v.backgroundColor = UIColor.blackColor()
+        v.backgroundColor = UIColor.black
         v.layer.masksToBounds = false
         v.layer.cornerRadius = 20
         v.clipsToBounds = true
@@ -87,18 +87,18 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         setup()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
     }
     
-    override func viewWillDisappear(animated: Bool)
+    override func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
         if offset < 0 {
             var lifeTransform = CATransform3DIdentity
@@ -123,7 +123,7 @@ class ProfileViewController: UIViewController, UIScrollViewDelegate {
         view.addSubview(avatar)
         view.addSubview(scrollView)
         
-        let life_w = UIScreen.mainScreen().bounds.width
+        let life_w = UIScreen.main.bounds.width
         let life_h = life_w / 3 * 1.5
         
         life.snp_makeConstraints { (make) -> Void in

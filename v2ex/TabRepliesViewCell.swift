@@ -25,7 +25,7 @@ class TabRepliesViewCell: UITableViewCell {
     
     lazy var avatar: UIImageView = {
         let v = UIImageView()
-        v.backgroundColor = UIColor.blackColor()
+        v.backgroundColor = UIColor.black
         v.layer.masksToBounds = false
         v.layer.cornerRadius = 15
         v.clipsToBounds = true
@@ -41,9 +41,9 @@ class TabRepliesViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
-        for v in [content, username, created, avatar] {
-            contentView.addSubview(v)
+    fileprivate func setup() {
+        for v in [content, username, created, avatar] as [Any] {
+            contentView.addSubview(v as! UIView)
         }
         
         avatar.snp_makeConstraints { (make) -> Void in
@@ -71,14 +71,14 @@ class TabRepliesViewCell: UITableViewCell {
         }
     }
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
-        CGContextSetLineWidth(context, 1.0)
-        CGContextMoveToPoint(context, 10, 20)
-        CGContextAddLineToPoint(context, contentView.frame.width - 10, 20)
-        CGContextStrokePath(context)
+        context?.setStrokeColor(UIColor.black.cgColor)
+        context?.setLineWidth(1.0)
+        context?.move(to: CGPoint(x: 10, y: 20))
+        context?.addLine(to: CGPoint(x: contentView.frame.width - 10, y: 20))
+        context?.strokePath()
     }
 }

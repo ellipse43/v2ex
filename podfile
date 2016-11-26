@@ -3,13 +3,13 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'v2ex' do
-    pod 'SwiftyJSON'
-    pod 'SnapKit'
-    pod 'SwiftHTTP'
-    pod 'Alamofire'
+    pod 'SwiftyJSON', '~> 3.1.1'
+    pod 'SnapKit', '~> 3.0.2'
+    pod 'SwiftHTTP', '~> 2.0.0'
+    pod 'Alamofire', '~> 4.0'
     pod 'PageMenu'
-    pod 'Kanna'
-    pod 'Refresher'
-    pod 'Kingfisher'
+    pod 'Kanna', '~> 2.0.0'
+    pod 'Refresher', '~> 0.6.1'
+    pod 'Kingfisher', '~> 3.0'
     pod 'ActiveLabel'
 end

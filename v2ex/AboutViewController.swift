@@ -11,10 +11,10 @@ import UIKit
 class AboutViewController: UIViewController {
     
     override func loadView() {
-        NSBundle.mainBundle().loadNibNamed("AboutViewController", owner: self, options: nil)
+        Bundle.main.loadNibNamed("AboutViewController", owner: self, options: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setNavigationBarItem()
     }

@@ -12,7 +12,7 @@ class TabViewCell: UITableViewCell {
     
     lazy var title: UILabel = {
         var v = UILabel()
-        v.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        v.lineBreakMode = NSLineBreakMode.byWordWrapping
         v.numberOfLines = 0
         return v
     }()
@@ -41,7 +41,7 @@ class TabViewCell: UITableViewCell {
     
     lazy var avatar: UIImageView = {
         var v = UIImageView()
-        v.backgroundColor = UIColor.blackColor()
+        v.backgroundColor = UIColor.black
         v.layer.masksToBounds = false
         v.layer.cornerRadius = 15
         v.clipsToBounds = true
@@ -58,9 +58,9 @@ class TabViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
-        for v in [title, created, replies, avatar, repliesLogo, username, node] {
-            contentView.addSubview(v)
+    fileprivate func setup() {
+        for v in [title, created, replies, avatar, repliesLogo, username, node] as [Any] {
+            contentView.addSubview(v as! UIView)
         }
         
         title.snp_makeConstraints { (make) -> Void in
@@ -104,15 +104,15 @@ class TabViewCell: UITableViewCell {
         }
     }
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetStrokeColorWithColor(context, UIColor.blackColor().CGColor)
-        CGContextSetLineWidth(context, 1.0)
-        CGContextMoveToPoint(context, 10, 20)
-        CGContextAddLineToPoint(context, contentView.frame.width - 10, 20)
-        CGContextStrokePath(context)
+        context?.setStrokeColor(UIColor.black.cgColor)
+        context?.setLineWidth(1.0)
+        context?.move(to: CGPoint(x: 10, y: 20))
+        context?.addLine(to: CGPoint(x: contentView.frame.width - 10, y: 20))
+        context?.strokePath()
     }
     
 }
